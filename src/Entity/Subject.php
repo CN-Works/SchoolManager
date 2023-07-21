@@ -22,14 +22,6 @@ class Subject
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\ManyToMany(targetEntity: Programs::class, mappedBy: 'subjects')]
-    private Collection $programs;
-
-    public function __construct()
-    {
-        $this->programs = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -55,33 +47,6 @@ class Subject
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Programs>
-     */
-    public function getPrograms(): Collection
-    {
-        return $this->programs;
-    }
-
-    public function addProgram(Programs $program): static
-    {
-        if (!$this->programs->contains($program)) {
-            $this->programs->add($program);
-            $program->addSubject($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProgram(Programs $program): static
-    {
-        if ($this->programs->removeElement($program)) {
-            $program->removeSubject($this);
-        }
 
         return $this;
     }

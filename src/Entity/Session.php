@@ -32,18 +32,6 @@ class Session
     #[ORM\JoinColumn(nullable: false)]
     private ?Formation $formation = null;
 
-    #[ORM\ManyToMany(targetEntity: Inscriptions::class, mappedBy: 'sessions')]
-    private Collection $inscriptions;
-
-    #[ORM\ManyToMany(targetEntity: Programs::class, mappedBy: 'sessions')]
-    private Collection $programs;
-
-    public function __construct()
-    {
-        $this->inscriptions = new ArrayCollection();
-        $this->programs = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -105,60 +93,6 @@ class Session
     public function setFormation(?Formation $formation): static
     {
         $this->formation = $formation;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Inscriptions>
-     */
-    public function getInscriptions(): Collection
-    {
-        return $this->inscriptions;
-    }
-
-    public function addInscription(Inscriptions $inscription): static
-    {
-        if (!$this->inscriptions->contains($inscription)) {
-            $this->inscriptions->add($inscription);
-            $inscription->addSession($this);
-        }
-
-        return $this;
-    }
-
-    public function removeInscription(Inscriptions $inscription): static
-    {
-        if ($this->inscriptions->removeElement($inscription)) {
-            $inscription->removeSession($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Programs>
-     */
-    public function getPrograms(): Collection
-    {
-        return $this->programs;
-    }
-
-    public function addProgram(Programs $program): static
-    {
-        if (!$this->programs->contains($program)) {
-            $this->programs->add($program);
-            $program->addSession($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProgram(Programs $program): static
-    {
-        if ($this->programs->removeElement($program)) {
-            $program->removeSession($this);
-        }
 
         return $this;
     }
