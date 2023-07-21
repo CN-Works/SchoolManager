@@ -22,6 +22,14 @@ class Subject
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+    #[ORM\OneToMany(mappedBy: 'subject', targetEntity: Program::class, orphanRemoval: true)]
+    private Collection $programs;
+
+    public function __construct()
+    {
+        $this->programs = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +55,36 @@ class Subject
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Program>
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
+    }
+
+    public function addProgram(Program $program): static
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs->add($program);
+            $program->setSubject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): static
+    {
+        if ($this->programs->removeElement($program)) {
+            // set the owning side to null (unless already changed)
+            if ($program->getSubject() === $this) {
+                $program->setSubject(null);
+            }
+        }
 
         return $this;
     }

@@ -35,9 +35,13 @@ class Session
     #[ORM\ManyToMany(targetEntity: Student::class, mappedBy: 'sessions')]
     private Collection $students;
 
+    #[ORM\OneToMany(mappedBy: 'session', targetEntity: Program::class, orphanRemoval: true)]
+    private Collection $programs;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
+        $this->programs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,6 +131,36 @@ class Session
     {
         if ($this->students->removeElement($student)) {
             $student->removeSession($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Program>
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
+    }
+
+    public function addProgram(Program $program): static
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs->add($program);
+            $program->setSession($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): static
+    {
+        if ($this->programs->removeElement($program)) {
+            // set the owning side to null (unless already changed)
+            if ($program->getSession() === $this) {
+                $program->setSession(null);
+            }
         }
 
         return $this;
