@@ -37,6 +37,14 @@ class Student
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $city = null;
 
+    #[ORM\ManyToMany(targetEntity: Session::class, inversedBy: 'students')]
+    private Collection $sessions;
+
+    public function __construct()
+    {
+        $this->sessions = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,6 +130,30 @@ class Student
     public function setCity(?string $city): static
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Session>
+     */
+    public function getSessions(): Collection
+    {
+        return $this->sessions;
+    }
+
+    public function addSession(Session $session): static
+    {
+        if (!$this->sessions->contains($session)) {
+            $this->sessions->add($session);
+        }
+
+        return $this;
+    }
+
+    public function removeSession(Session $session): static
+    {
+        $this->sessions->removeElement($session);
 
         return $this;
     }

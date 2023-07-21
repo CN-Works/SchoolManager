@@ -32,6 +32,14 @@ class Session
     #[ORM\JoinColumn(nullable: false)]
     private ?Formation $formation = null;
 
+    #[ORM\ManyToMany(targetEntity: Student::class, mappedBy: 'sessions')]
+    private Collection $students;
+
+    public function __construct()
+    {
+        $this->students = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +101,33 @@ class Session
     public function setFormation(?Formation $formation): static
     {
         $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Student>
+     */
+    public function getStudents(): Collection
+    {
+        return $this->students;
+    }
+
+    public function addStudent(Student $student): static
+    {
+        if (!$this->students->contains($student)) {
+            $this->students->add($student);
+            $student->addSession($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudent(Student $student): static
+    {
+        if ($this->students->removeElement($student)) {
+            $student->removeSession($this);
+        }
 
         return $this;
     }
