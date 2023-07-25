@@ -54,6 +54,16 @@ class SubjectController extends AbstractController
         ]);
     }
 
+    #[Route('/subject/{id}/delete', name: 'delete_subject')]
+    public function delete(SubjectRepository $subjectRepository, EntityManagerInterface $entityManager, $id)
+    {   
+        $subject = $subjectRepository->find(($id));
+        $entityManager->remove($subject);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_subject');
+    }
+
     #[Route('/subject/{id}', name: 'show_subject')]
     public function show(Subject $subject): Response {
         
