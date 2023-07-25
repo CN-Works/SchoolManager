@@ -86,6 +86,17 @@ class Student
         return $this;
     }
 
+    public function getAge(): ?string {
+        // Getting today's date
+        $now = new \DateTime();
+
+        // difference between today and birthday
+        $interval = $this->birthdate->diff($now);
+
+        // returns age in years
+        return $interval->format("%Y");
+    }
+
     public function getBirthdate(): ?\DateTimeInterface
     {
         return $this->birthdate;

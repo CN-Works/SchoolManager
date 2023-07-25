@@ -1,11 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StudentController!{% endblock %}
+{% block title %}Students{% endblock %}
 
 {% block body %}
 
-<div class="students-main">
+<div class="student-main">
+    <h1 class="student-title">All students</h1>
 
+    {# <a href="{{ path("new_student") }}">
+        <p>Create a new student</p>
+    </a> #}
+
+    <div class="student-cards">
+        {% for student in allstudents %}
+            <div class="student-card">
+                <figure class="student-card-banner unselectable">
+                    <img src="{{ asset("img/default_image.jpg") }}" alt="{{ student.firstname ~ " " ~ student.lastname }}'s banner image">
+                </figure>
+
+                <h2 class="student-card-label">{{ student.firstname ~ " " ~ student.lastname }}</h2>
+                <p class="student-card-description">{{  student.firstname ~ " from "~ student.city }}</p>
+                <a class="student-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">
+                    <p>See more</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

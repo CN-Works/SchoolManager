@@ -65,7 +65,7 @@ class FormationController extends AbstractController
         return $this->redirectToRoute('app_formation');
     }
 
-    #[Route('/formation/{id}', name: 'formation_show')]
+    #[Route('/formation/{id}', name: 'show_formation')]
     public function show(Formation $formation): Response {
         
         return $this->render('formation/show_formation.html.twig', [

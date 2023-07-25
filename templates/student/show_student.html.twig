@@ -1,0 +1,25 @@
+{% block body %}
+
+<div class="formation-main">
+    <h1 class="formation-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
+
+    <p>{{student.getAge }} years old</p>
+
+    <p>{{ student.firstname ~ " is living in " ~ student.city }}</p>
+
+    <ul>
+        <li>{{ student.phone }}</li>
+        <li>{{ student.email }}</li>
+    </ul>
+
+    {# <a href="{{ path("edit_formation", {"id" : formation.id}) }}">
+        <p>Edit</p>
+    </a>
+
+    <a href="{{ path("delete_formation", {"id" : formation.id} ) }}">
+        <p>Delete</p>
+    </a> #}
+
+</div>
+
+{% endblock %}
