@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Subject;
+use App\Entity\Category;
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +21,15 @@ class SubjectController extends AbstractController
         $subjects = $subjectRepository->findBy([],["label" => "ASC"]);
         return $this->render('subject/index.html.twig', [
             'allsubjects' => $subjects,
+        ]);
+    }
+
+    #[Route('/subjectcategory', name: 'app_subjectcategory')]
+    public function index_cateogry(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findBy([],["label" => "ASC"]);
+        return $this->render('subject/category/index.html.twig', [
+            'allcategories' => $categories,
         ]);
     }
 
@@ -62,6 +73,14 @@ class SubjectController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('app_subject');
+    }
+
+    #[Route('/subjectcategory/{id}', name: 'show_subjectcategory')]
+    public function show_category(Category $category): Response {
+        
+        return $this->render('subject/category/show_category.html.twig', [
+            "category" => $category,
+        ]);
     }
 
     #[Route('/subject/{id}', name: 'show_subject')]

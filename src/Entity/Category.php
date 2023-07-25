@@ -48,6 +48,10 @@ class Category
         return $this;
     }
 
+    public function countAllSubjects(): ?int {
+        return count($this->subjects) ;
+    }
+
     /**
      * @return Collection<int, Subject>
      */

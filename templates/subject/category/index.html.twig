@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subject Category{% endblock %}
+
+{% block body %}
+
+<div class="subject-main">
+    <h1 class="subject-title">All Subjects Categories</h1>
+
+    {# <a href="{{ path("new_subjectcategory") }}">
+        <p>Create a new subject</p>
+    </a> #}
+
+    <div class="subject-cards">
+        {% for category in allcategories %}
+            <div class="subject-card">
+                <figure class="subject-card-banner unselectable">
+                    <img src="{{ asset("img/default_image.jpg") }}" alt="{{ category.label }}'s banner image">
+                </figure>
+
+                <h2 class="subject-card-label">{{ category.label }}</h2>
+                <p class="subject-card-description">There are {{  category.countallsubjects }} available subjects.</p>
+                <a class="subject-card-infobutton" href="{{ path("show_subjectcategory", {"id" : category.id}) }}">
+                    <p>See more</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
