@@ -62,6 +62,16 @@ class Session
         return $this;
     }
 
+    public function getDaysBeginInterval(): ?string {
+        // Getting today's date
+        $now = new \DateTime();
+
+        // difference between today
+        $interval = $this->datebegin->diff($now);
+
+        return $interval->format("%r%a");
+    }
+
     public function getDatebegin(): ?\DateTimeInterface
     {
         return $this->datebegin;
