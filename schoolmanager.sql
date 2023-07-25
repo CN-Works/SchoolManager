@@ -22,11 +22,11 @@ USE `schoolmanager`;
 -- Listage de la structure de table schoolmanager. category
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.category : ~6 rows (environ)
+-- Listage des données de la table schoolmanager.category : ~7 rows (environ)
 INSERT INTO `category` (`id`, `label`) VALUES
 	(1, 'Développement Web'),
 	(2, 'Communication'),
@@ -38,25 +38,25 @@ INSERT INTO `category` (`id`, `label`) VALUES
 
 -- Listage de la structure de table schoolmanager. doctrine_migration_versions
 CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
-  `version` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `version` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int DEFAULT NULL,
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Listage des données de la table schoolmanager.doctrine_migration_versions : ~0 rows (environ)
+-- Listage des données de la table schoolmanager.doctrine_migration_versions : ~1 rows (environ)
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 	('DoctrineMigrations\\Version20230721122018', '2023-07-21 12:20:45', 408);
 
 -- Listage de la structure de table schoolmanager. formation
 CREATE TABLE IF NOT EXISTS `formation` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.formation : ~2 rows (environ)
+-- Listage des données de la table schoolmanager.formation : ~3 rows (environ)
 INSERT INTO `formation` (`id`, `label`, `description`) VALUES
 	(1, 'Développeur Web Web Mobile', 'Apprendre les langage de développement web'),
 	(2, 'Concepteur d\'application', 'Développement web avancé avec l\'utilisation de framework'),
@@ -65,9 +65,9 @@ INSERT INTO `formation` (`id`, `label`, `description`) VALUES
 -- Listage de la structure de table schoolmanager. messenger_messages
 CREATE TABLE IF NOT EXISTS `messenger_messages` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `headers` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue_name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `headers` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue_name` varchar(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
   `available_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
   `delivered_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
@@ -90,35 +90,50 @@ CREATE TABLE IF NOT EXISTS `program` (
   KEY `IDX_92ED778423EDC87` (`subject_id`),
   CONSTRAINT `FK_92ED778423EDC87` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`),
   CONSTRAINT `FK_92ED7784613FECDF` FOREIGN KEY (`session_id`) REFERENCES `session` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.program : ~0 rows (environ)
+-- Listage des données de la table schoolmanager.program : ~11 rows (environ)
+INSERT INTO `program` (`id`, `session_id`, `subject_id`, `duration`) VALUES
+	(1, 1, 9, 5),
+	(2, 1, 10, 15),
+	(3, 1, 1, 10),
+	(4, 1, 11, 1),
+	(6, 2, 2, 2),
+	(7, 2, 9, 7),
+	(8, 2, 8, 1),
+	(9, 2, 4, 2),
+	(10, 1, 4, 2),
+	(11, 1, 5, 3),
+	(12, 2, 6, 2);
 
 -- Listage de la structure de table schoolmanager. session
 CREATE TABLE IF NOT EXISTS `session` (
   `id` int NOT NULL AUTO_INCREMENT,
   `formation_id` int NOT NULL,
-  `label` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datebegin` date NOT NULL,
   `dateend` date NOT NULL,
   `capacity` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_D044D5D45200282E` (`formation_id`),
   CONSTRAINT `FK_D044D5D45200282E` FOREIGN KEY (`formation_id`) REFERENCES `formation` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.session : ~0 rows (environ)
+-- Listage des données de la table schoolmanager.session : ~2 rows (environ)
+INSERT INTO `session` (`id`, `formation_id`, `label`, `datebegin`, `dateend`, `capacity`) VALUES
+	(1, 1, 'Dev. Web n°1', '2022-07-25', '2023-10-25', 15),
+	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12);
 
 -- Listage de la structure de table schoolmanager. student
 CREATE TABLE IF NOT EXISTS `student` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sex` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `firstname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sex` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `birthdate` date NOT NULL,
-  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -146,13 +161,13 @@ CREATE TABLE IF NOT EXISTS `student_session` (
 CREATE TABLE IF NOT EXISTS `subject` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category_id` int NOT NULL,
-  `label` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_FBCE3E7A12469DE2` (`category_id`),
   CONSTRAINT `FK_FBCE3E7A12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.subject : ~11 rows (environ)
+-- Listage des données de la table schoolmanager.subject : ~13 rows (environ)
 INSERT INTO `subject` (`id`, `category_id`, `label`) VALUES
 	(1, 1, 'PHP : les bases'),
 	(2, 7, 'UX / UI : présentation'),
