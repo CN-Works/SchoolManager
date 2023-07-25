@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 
 -- Listage des données de la table schoolmanager.session : ~2 rows (environ)
 INSERT INTO `session` (`id`, `formation_id`, `label`, `datebegin`, `dateend`, `capacity`) VALUES
-	(1, 1, 'Dev. Web n°1', '2022-07-25', '2023-10-25', 15),
+	(1, 1, 'Dev. Web n°1', '2022-03-10', '2023-10-25', 15),
 	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12);
 
 -- Listage de la structure de table schoolmanager. student
@@ -137,12 +137,13 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.student : ~4 rows (environ)
+-- Listage des données de la table schoolmanager.student : ~5 rows (environ)
 INSERT INTO `student` (`id`, `firstname`, `lastname`, `sex`, `birthdate`, `phone`, `email`, `city`) VALUES
 	(1, 'Enzo', 'Ferrari', 'm', '1898-02-18', '0504706080', 'enzo.ferrari@gmail.com', 'Modena'),
 	(2, 'Maxoms', 'Bertozi', 'm', '1998-10-21', '0504069080', 'maxoms68@hotmail.com', 'Colmar'),
 	(3, 'Madinax', 'Citrolent', 'f', '1980-02-01', '0405060808', 'madinax@gmail.com', 'Colmar'),
-	(4, 'Quentino', 'Despacito', 'm', '1995-11-28', '0604088932', 'quentin12@gmail.com', 'Saint Lous');
+	(4, 'Quentino', 'Despacito', 'm', '1995-11-28', '0604088932', 'quentin12@gmail.com', 'Saint Lous'),
+	(5, 'Marie', 'Cyne', 'f', '2003-07-25', '06080409', 'marie.cyne@gmail.com', 'Paris');
 
 -- Listage de la structure de table schoolmanager. student_session
 CREATE TABLE IF NOT EXISTS `student_session` (
