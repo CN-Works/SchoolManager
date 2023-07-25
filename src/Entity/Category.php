@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Symfony\Component\Form\FormTypeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,6 +25,10 @@ class Category
     public function __construct()
     {
         $this->subjects = new ArrayCollection();
+    }
+
+    public function __toString() {
+        return $this->label;
     }
 
     public function getId(): ?int

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subject{% endblock %}
+
+{% block body %}
+
+{% if edit %}
+    <h1>Edit Subject</h1>
+{% else %}
+    <h1>Create a Subject</h1>
+{% endif %}
+
+<div>
+    {{ form_start(formAddEditSubject) }}
+
+        {{ form_row(formAddEditSubject.label) }}
+
+        {{ form_row(formAddEditSubject.category) }}
+
+        {{ form_row(formAddEditSubject.submit) }}
+    {{ form_end(formAddEditSubject) }}
+</div>
+
+{% endblock %}

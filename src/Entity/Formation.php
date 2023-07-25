@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\FormationRepository;
+use Symfony\Component\Form\FormTypeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

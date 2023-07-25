@@ -7,9 +7,9 @@
 <div class="subject-main">
     <h1 class="subject-title">All Subjects</h1>
 
-    {# <a href="{{ path("new_subject") }}">
+    <a href="{{ path("new_subject") }}">
         <p>Create a new subject</p>
-    </a> #}
+    </a>
 
     <div class="subject-cards">
         {% for subject in allsubjects %}
@@ -20,9 +20,9 @@
 
                 <h2 class="subject-card-label">{{ subject.label }}</h2>
                 <p class="subject-card-description">{{  subject.category.label }}</p>
-                {# <a class="subject-card-infobutton" href="{{ path("show_subject", {"id" : subject.id}) }}">
+                <a class="subject-card-infobutton" href="{{ path("show_subject", {"id" : subject.id}) }}">
                     <p>See more</p>
-                </a> #}
+                </a>
             </div>
         {% endfor %}
     </div>
