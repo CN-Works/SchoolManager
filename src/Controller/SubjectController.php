@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Subject;
 use App\Entity\Category;
 use App\Form\SubjectType;
+use App\Form\CategoryType;
 use App\Repository\SubjectRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -65,6 +66,38 @@ class SubjectController extends AbstractController
         ]);
     }
 
+    #[Route('/subjectcategory/new', name: 'new_subjectcategory')]
+    #[Route('/subjectcategory/{id}/edit', name: 'edit_subjectcategory')]
+    public function category_new_edit(Category $category = null,Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if (!$category) {
+            $category = new Category;
+        }
+
+        $form = $this->createForm(CategoryType::class, $category);
+
+        $form->handleRequest($request);
+
+        // Checks if form inputs are in a valid type
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // Affecting the form data into the object
+            $category = $form->getData();
+
+            $entityManager->persist($category);
+            // Saving in db
+            $entityManager->flush();
+
+            // Redirection to all societies
+            return $this->redirectToRoute("app_subjectcategory");
+        }
+
+        return $this->render('subject/category/new_edit.html.twig', [
+            'formAddEditSubjectCategory' => $form,
+            "edit" => $category->getId(),
+        ]);
+    }
+
     #[Route('/subject/{id}/delete', name: 'delete_subject')]
     public function delete(SubjectRepository $subjectRepository, EntityManagerInterface $entityManager, $id)
     {   
@@ -75,12 +108,14 @@ class SubjectController extends AbstractController
         return $this->redirectToRoute('app_subject');
     }
 
-    #[Route('/subjectcategory/{id}', name: 'show_subjectcategory')]
-    public function show_category(Category $category): Response {
-        
-        return $this->render('subject/category/show_category.html.twig', [
-            "category" => $category,
-        ]);
+    #[Route('/subjectcategory/{id}/delete', name: 'delete_subjectcategory')]
+    public function category_delete(CategoryRepository $categoryRepository, EntityManagerInterface $entityManager, $id)
+    {   
+        $category = $categoryRepository->find(($id));
+        $entityManager->remove($category);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_subjectcategory');
     }
 
     #[Route('/subject/{id}', name: 'show_subject')]
@@ -88,6 +123,14 @@ class SubjectController extends AbstractController
         
         return $this->render('subject/show_subject.html.twig', [
             "subject" => $subject,
+        ]);
+    }
+
+    #[Route('/subjectcategory/{id}', name: 'show_subjectcategory')]
+    public function show_category(Category $category): Response {
+        
+        return $this->render('subject/category/show_category.html.twig', [
+            "category" => $category,
         ]);
     }
 }
