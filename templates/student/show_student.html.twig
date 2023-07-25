@@ -1,7 +1,7 @@
 {% block body %}
 
-<div class="formation-main">
-    <h1 class="formation-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
+<div class="student-main">
+    <h1 class="student-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
 
     <p>{{student.getAge }} years old</p>
 
@@ -14,13 +14,13 @@
         <li>{{ student.email }}</li>
     </ul>
 
-    {# <a href="{{ path("edit_formation", {"id" : formation.id}) }}">
+    <a href="{{ path("edit_student", {"id" : student.id}) }}">
         <p>Edit</p>
     </a>
 
-    <a href="{{ path("delete_formation", {"id" : formation.id} ) }}">
+    <a href="{{ path("delete_student", {"id" : student.id} ) }}">
         <p>Delete</p>
-    </a> #}
+    </a>
 
 </div>
 
