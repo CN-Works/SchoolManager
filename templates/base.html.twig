@@ -13,6 +13,14 @@
         {% endblock %}
     </head>
     <body>
+        <nav>
+            <a class="nav-option" href="{{ path("app_formation") }}">
+                <p>Formations</p>
+            </a>
+            <a class="nav-option" href="{{ path("app_student") }}">
+                <p>Students</p>
+            </a>
+        </nav>
 
         {% block body %}{% endblock %}
 

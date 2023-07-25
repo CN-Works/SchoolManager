@@ -20,6 +20,33 @@
     user-select: none;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-option {
+    height: 10svh;
+    background-color: var(--blue);
+    color: var(--light);
+    text-decoration: none;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-option:hover {
+    background-color: var(--blue-dark);
+}
+
+.nav-option:visited {
+    color: var(--light);
+}
+
+
 /* Students */
 .student-main {
     min-height: 90svh;
