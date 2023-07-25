@@ -73,7 +73,7 @@ nav {
 
 .student-card {
     width: calc(100%/4 - 10px);
-    min-width: 400px;
+    min-width: 300px;
     margin: 5px;
 
     display: flex;
@@ -140,7 +140,7 @@ nav {
 
 .formation-card {
     width: calc(100%/4 - 10px);
-    min-width: 400px;
+    min-width: 300px;
     margin: 5px;
 
     display: flex;
@@ -179,4 +179,63 @@ nav {
     border-radius: 10px;
 
     padding: 5px;
+}
+
+/* Subjects */
+.subject-main {
+    min-height: 90svh;
+    width: 100%;
+}
+
+.subject-title {
+    color: var(--blue);
+
+    width: 100%;
+    padding: 0 10px;
+
+    margin: 30px 0;
+}
+
+.subject-cards {
+    width: 100%;
+
+    padding: 0 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.subject-card {
+    width: calc(100%/4 - 10px);
+    min-width: 300px;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subject-card-banner {
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.subject-card-banner-img {
+    height: 100%;
+}
+
+.subject-card-label {
+    width: 100%;
+    padding: 0 2px;
+}
+
+.subject-card-description {
+    width: 100%;
+    padding: 0 2px;
 }
