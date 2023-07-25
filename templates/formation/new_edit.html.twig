@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+
+{% if edit %}
+    <h1>Edit Formation</h1>
+{% else %}
+    <h1>Create a Formation</h1>
+{% endif %}
+
+<div>
+    {{ form_start(formAddEditFormation) }}
+
+        {{ form_row(formAddEditFormation.label) }}
+
+        {{ form_row(formAddEditFormation.description) }}
+
+        {{ form_row(formAddEditFormation.submit) }}
+    {{ form_end(formAddEditFormation) }}
+</div>
+
+{% endblock %}

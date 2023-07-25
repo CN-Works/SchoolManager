@@ -7,6 +7,10 @@
 <div class="formation-main">
     <h1 class="formation-title">All formations</h1>
 
+    <a href="{{ path("new_formation") }}">
+        <p>Create a new Formation</p>
+    </a>
+
     <div class="formation-cards">
         {% for formation in allformations %}
             <div class="formation-card">
