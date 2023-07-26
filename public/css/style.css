@@ -17,6 +17,8 @@
     --blue-electric-hover : #1b85e1;
     --yellow : #ffd931;
     --yellow-hover : #eeca2b;
+    --red-flash : #FE4A49;
+    --red-flash-hover : #cb3e3e;
     --green : #398C4F;
     --green-light : #48CD68;
     --green-washed : #C1F2CC;
@@ -65,7 +67,7 @@
     color: black;
     text-decoration: none;
 
-    padding: 10px 15px;
+    padding: 12px 15px;
     margin: 5px 0;
     width: fit-content;
     border-radius: 5px;
@@ -73,6 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 
     overflow: hidden;
     transition: all, 0.5s;
@@ -91,7 +94,35 @@
 }
 
 .general-delete-button {
+    background-color: var(--red-flash);
+    color: white;
+    text-decoration: none;
 
+    padding: 10px 15px;
+    margin: 5px 0;
+    width: fit-content;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    overflow: hidden;
+    transition: all, 0.5s;
+}
+
+.general-delete-button:hover {
+    background-color: var(--red-flash-hover);
+}
+
+.general-delete-button:visited {
+    color: white;
+}
+
+.general-delete-button-icon {
+    height: 25px;
+    filter: invert();
 }
 
 .general-cards {
