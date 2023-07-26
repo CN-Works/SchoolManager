@@ -10,6 +10,7 @@
     <p>This subject in part of {{ subject.category.label }}'s category</p>
 
     <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">
+        <img class="general-edit-button-icon" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>
     </a>
 
