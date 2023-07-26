@@ -20,9 +20,9 @@
 
                 <h2 class="general-card-label">{{ session.label }}</h2>
                 <p class="general-card-description">Has started {{ session.getdaysbegininterval }} ago.</p>
-                {# <a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">
+                <a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">
                     <p>See more</p>
-                </a> #}
+                </a>
             </div>
         {% endfor %}
     </div>

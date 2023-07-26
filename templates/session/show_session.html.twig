@@ -4,21 +4,10 @@
 
 {% block body %}
 
-<div class="student-main">
+<div class="session-main">
     <h1 class="general-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
 
-    <p>{{student.getAge }} years old</p>
-
-    <p>Sex : {{ student.sex }}</p>
-
-    <p>{{ student.firstname ~ " is living in " ~ student.city }}</p>
-
-    <ul>
-        <li>{{ student.phone }}</li>
-        <li>{{ student.email }}</li>
-    </ul>
-
-    <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
+    {# <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
         <img class="general-edit-button-icon" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>
     </a>
@@ -26,7 +15,7 @@
     <a class="general-delete-button" href="{{ path("delete_student", {"id" : student.id} ) }}">
         <img class="general-delete-button-icon" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
         <p>Delete</p>
-    </a>
+    </a> #}
 
 </div>
 

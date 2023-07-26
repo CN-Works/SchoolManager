@@ -3,6 +3,10 @@
     padding : 0;
     margin : 0;
     box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
   }
 
 /* General */
@@ -41,6 +45,8 @@
     background-color: var(--blue-electric);
     color: white;
     text-decoration: none;
+
+    font-size: 0.8rem;
 
     padding: 10px 15px;
     margin: 5px 0;
@@ -90,13 +96,15 @@
 }
 
 .general-edit-button-icon {
-    height: 25px;
+    height: 20px;
 }
 
 .general-delete-button {
     background-color: var(--red-flash);
     color: white;
     text-decoration: none;
+
+    font-size: 0.8rem;
 
     padding: 10px 15px;
     margin: 5px 0;
@@ -121,14 +129,32 @@
 }
 
 .general-delete-button-icon {
-    height: 25px;
+    height: 20px;
     filter: invert();
+}
+
+.general-card-infobutton {
+    color: var(--blue-light);
+    text-decoration: none;
+
+    font-size: 1rem;
+    width: fit-content;
+
+    transition: all, 0.5s;
+}
+
+.general-card-infobutton:hover {
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+.general-card-infobutton:visited {
+    color: var(--blue-light);
 }
 
 .general-cards {
     width: 100%;
-
-    padding: 0 5px;
 
     display: flex;
     flex-flow: row wrap;
@@ -165,11 +191,16 @@
 }
 
 .general-card-label {
+    color: var(--blue-light);
+    font-size: 1.3rem;
+
     width: 100%;
     padding: 0 2px;
 }
 
 .general-card-description {
+    color: var(--blue-light);
+
     width: 100%;
     padding: 0 2px;
 }
@@ -187,12 +218,26 @@
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    height: 10svh;
+    background-color: var(--blue);
+}
+
+.nav-logo {
+    height: 60%;
+
+    margin: 0 10px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .nav-option {
     height: 10svh;
-    background-color: var(--blue);
     color: var(--light);
     text-decoration: none;
     padding: 0 20px;
@@ -203,7 +248,7 @@ nav {
 }
 
 .nav-option:hover {
-    background-color: var(--blue-dark);
+    background-color: var(--blue-light);
 }
 
 .nav-option:visited {

@@ -14,18 +14,21 @@
     </head>
     <body>
         <nav>
-            <a class="nav-option" href="{{ path("app_formation") }}">
-                <p>Formations</p>
-            </a>
-            <a class="nav-option" href="{{ path("app_session") }}">
-                <p>Sessions</p>
-            </a>
-            <a class="nav-option" href="{{ path("app_subject") }}">
-                <p>Subjects</p>
-            </a>
-            <a class="nav-option" href="{{ path("app_student") }}">
-                <p>Students</p>
-            </a>
+            <img class="nav-logo" src="{{ asset("img/bear_formation.png") }}" alt="Site logo">
+            <div class="nav-list">
+                <a class="nav-option" href="{{ path("app_formation") }}">
+                    <p>Formations</p>
+                </a>
+                <a class="nav-option" href="{{ path("app_session") }}">
+                    <p>Sessions</p>
+                </a>
+                <a class="nav-option" href="{{ path("app_subject") }}">
+                    <p>Subjects</p>
+                </a>
+                <a class="nav-option" href="{{ path("app_student") }}">
+                    <p>Students</p>
+                </a>
+            </div>
         </nav>
 
         {% block body %}{% endblock %}
