@@ -5,26 +5,26 @@
 {% block body %}
 
 <div class="subject-main">
-    <h1 class="subject-title">All Subjects</h1>
+    <h1 class="general-title">All Subjects</h1>
 
-    <a href="{{ path("app_subjectcategory") }}">
+    <a class="general-new-button" href="{{ path("app_subjectcategory") }}">
         <p>See all categories</p>
     </a>
 
-    <a href="{{ path("new_subject") }}">
+    <a class="general-new-button" href="{{ path("new_subject") }}">
         <p>Create a new subject</p>
     </a>
 
-    <div class="subject-cards">
+    <div class="general-cards">
         {% for subject in allsubjects %}
-            <div class="subject-card">
-                <figure class="subject-card-banner unselectable">
-                    <img src="{{ asset("img/default_image.jpg") }}" alt="{{ subject.label }}'s banner image">
+            <div class="general-card">
+                <figure class="general-card-banner unselectable">
+                    <img class="general-card-banner-image" src="{{ asset("img/default_image.jpg") }}" alt="{{ subject.label }}'s banner image">
                 </figure>
 
-                <h2 class="subject-card-label">{{ subject.label }}</h2>
-                <p class="subject-card-description">{{  subject.category.label }}</p>
-                <a class="subject-card-infobutton" href="{{ path("show_subject", {"id" : subject.id}) }}">
+                <h2 class="general-card-label">{{ subject.label }}</h2>
+                <p class="general-card-description">{{  subject.category.label }}</p>
+                <a class="general-card-infobutton" href="{{ path("show_subject", {"id" : subject.id}) }}">
                     <p>See more</p>
                 </a>
             </div>

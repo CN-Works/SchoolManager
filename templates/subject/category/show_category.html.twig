@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="subject-main">
-    <h1 class="subject-title">{{ category.label}}</h1>
+    <h1 class="general-title">{{ category.label}}</h1>
 
     <p>This category contains {{ category.countallsubjects }} subjects.</p>
 
@@ -14,11 +14,11 @@
         <br>
     {% endfor %}
 
-    <a href="{{ path("edit_subjectcategory", {"id" : category.id}) }}">
+    <a class="general-edit-button" href="{{ path("edit_subjectcategory", {"id" : category.id}) }}">
         <p>Edit</p>
     </a>
 
-    <a href="{{ path("delete_subjectcategory", {"id" : category.id} ) }}">
+    <a class="general-delete-button" href="{{ path("delete_subjectcategory", {"id" : category.id} ) }}">
         <p>Delete</p>
     </a>
 </div>

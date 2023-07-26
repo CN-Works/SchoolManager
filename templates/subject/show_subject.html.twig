@@ -5,15 +5,15 @@
 {% block body %}
 
 <div class="subject-main">
-    <h1 class="subject-title">{{ subject.label}}</h1>
+    <h1 class="general-title">{{ subject.label}}</h1>
 
     <p>This subject in part of {{ subject.category.label }}'s category</p>
 
-    <a href="{{ path("edit_subject", {"id" : subject.id}) }}">
+    <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">
         <p>Edit</p>
     </a>
 
-    <a href="{{ path("delete_subject", {"id" : subject.id} ) }}">
+    <a class="general-delete-button" href="{{ path("delete_subject", {"id" : subject.id} ) }}">
         <p>Delete</p>
     </a>
 

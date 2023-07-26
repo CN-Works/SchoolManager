@@ -5,22 +5,22 @@
 {% block body %}
 
 <div class="session-main">
-    <h1 class="session-title">All sessions</h1>
+    <h1 class="general-title">All sessions</h1>
 
-    {# <a href="{{ path("new_session") }}">
+    {# <a class="general-new-button" href="{{ path("new_session") }}">
         <p>Create a new session</p>
     </a> #}
 
-    <div class="session-cards">
+    <div class="general-cards">
         {% for session in allsessions %}
-            <div class="session-card">
-                <figure class="session-card-banner unselectable">
-                    <img src="{{ asset("img/default_image.jpg") }}" alt="{{ session.label }}'s banner image">
+            <div class="general-card">
+                <figure class="general-card-banner unselectable">
+                    <img class="general-card-banner-image" src="{{ asset("img/default_image.jpg") }}" alt="{{ session.label }}'s banner image">
                 </figure>
 
-                <h2 class="session-card-label">{{ session.label }}</h2>
-                <p class="session-card-description">Has started {{ session.getdaysbegininterval }} ago.</p>
-                {# <a class="session-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">
+                <h2 class="general-card-label">{{ session.label }}</h2>
+                <p class="general-card-description">Has started {{ session.getdaysbegininterval }} ago.</p>
+                {# <a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">
                     <p>See more</p>
                 </a> #}
             </div>

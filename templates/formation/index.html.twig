@@ -5,22 +5,22 @@
 {% block body %}
 
 <div class="formation-main">
-    <h1 class="formation-title">All formations</h1>
+    <h1 class="general-title">All formations</h1>
 
-    <a href="{{ path("new_formation") }}">
+    <a class="general-new-button" href="{{ path("new_formation") }}">
         <p>Create a new Formation</p>
     </a>
 
-    <div class="formation-cards">
+    <div class="general-cards">
         {% for formation in allformations %}
-            <div class="formation-card">
-                <figure class="formation-card-banner unselectable">
-                    <img src="{{ asset("img/default_image.jpg") }}" alt="{{ formation.label }}'s banner image">
+            <div class="general-card">
+                <figure class="general-card-banner unselectable">
+                    <img class="general-card-banner-image" src="{{ asset("img/default_image.jpg") }}" alt="{{ formation.label }}'s banner image">
                 </figure>
 
-                <h2 class="formation-card-label">{{ formation.label }}</h2>
-                <p class="formation-card-description">{{ formation.description }}</p>
-                <a class="formation-card-infobutton" href="{{ path("show_formation", {"id" : formation.id}) }}">
+                <h2 class="general-card-label">{{ formation.label }}</h2>
+                <p class="general-card-description">{{ formation.description }}</p>
+                <a class="general-card-infobutton" href="{{ path("show_formation", {"id" : formation.id}) }}">
                     <p>See more</p>
                 </a>
             </div>
