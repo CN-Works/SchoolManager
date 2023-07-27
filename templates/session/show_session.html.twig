@@ -7,9 +7,22 @@
 <div class="session-main">
     <h1 class="general-title">{{ session.label }}</h1>
 
-    <p>This session is part of <a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label }}</a> formation.</p>
+    <p>This session is part of <a class="general-card-infobutton" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label }}</a> formation.</p>
     <p>{{ session.label }} has a capacity of {{ session.capacity }} students,</p>
-    <p>It started on {{ session.getDatebeginFormat }} and will end on {{ session.getDateendFormat }}.</p> 
+    <p>It started on <b>{{ session.getDatebeginFormat }}</b> and will end on <b>{{ session.getDateendFormat }}</b>.</p>
+
+    <br>
+
+    <table class="general-basic-table">
+        <tr>
+          <th>Students</th>
+        </tr>
+    {% for student in session.students %}
+        <tr class="general-basic-table-tr">
+            <td class="general-basic-table-td"><a class="general-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">{{ student }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
 
     {# <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
