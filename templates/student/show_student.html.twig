@@ -7,16 +7,31 @@
 <div class="student-main">
     <h1 class="general-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
 
-    <p>{{student.getAge }} years old</p>
+    <p>Student's sex is {{ student.sex }}.</p>
 
-    <p>Sex : {{ student.sex }}</p>
+    <p>{{ student.firstname ~ " is " ~ student.getAge ~ " years old and  " ~ " is living in " ~ student.city }}</p>
 
-    <p>{{ student.firstname ~ " is living in " ~ student.city }}</p>
+    <br>
 
-    <ul>
-        <li>{{ student.phone }}</li>
-        <li>{{ student.email }}</li>
-    </ul>
+    <b>Email :</b>
+    <p>{{ student.email }}</p>
+    <b>Phone number :</b>
+    <p>{{ student.phone }}</p>
+
+    <br>
+
+    <table>
+        <tr>
+          <th>Formation</th>
+          <th>Session</th>
+        </tr>
+    {% for session in student.sessions %}
+        <tr >
+            <td><a class="general-card-infobutton" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label}}</a></td>
+            <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
 
     <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">

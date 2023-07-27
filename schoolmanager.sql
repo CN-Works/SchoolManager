@@ -16,7 +16,7 @@
 
 
 -- Listage de la structure de la base pour schoolmanager
-CREATE DATABASE IF NOT EXISTS `schoolmanager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `schoolmanager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `schoolmanager`;
 
 -- Listage de la structure de table schoolmanager. category
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table schoolmanager.student : ~5 rows (environ)
 INSERT INTO `student` (`id`, `firstname`, `lastname`, `sex`, `birthdate`, `phone`, `email`, `city`) VALUES
@@ -156,7 +156,15 @@ CREATE TABLE IF NOT EXISTS `student_session` (
   CONSTRAINT `FK_3D72602CCB944F1A` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.student_session : ~0 rows (environ)
+-- Listage des données de la table schoolmanager.student_session : ~7 rows (environ)
+INSERT INTO `student_session` (`student_id`, `session_id`) VALUES
+	(1, 1),
+	(2, 1),
+	(2, 2),
+	(3, 2),
+	(4, 1),
+	(5, 1),
+	(5, 2);
 
 -- Listage de la structure de table schoolmanager. subject
 CREATE TABLE IF NOT EXISTS `subject` (
