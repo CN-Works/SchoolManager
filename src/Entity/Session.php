@@ -36,7 +36,7 @@ class Session
     #[ORM\ManyToMany(targetEntity: Student::class, mappedBy: 'sessions')]
     private Collection $students;
 
-    #[ORM\OneToMany(mappedBy: 'session', targetEntity: Program::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'session', targetEntity: Program::class, orphanRemoval: true, cascade : ['persist'])]
     private Collection $programs;
 
     public function __construct()

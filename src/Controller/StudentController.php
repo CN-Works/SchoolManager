@@ -69,14 +69,19 @@ class StudentController extends AbstractController
     #[Route('/student/{id}/interrupt/{sessionid}', name: 'interrupt_student')]
     public function interrupt(StudentRepository $studentRepository, SessionRepository $sessionRepository, EntityManagerInterface $entityManager, $id, $sessionid)
     {   
+        // Getting the student entity by id
         $student = $studentRepository->find(($id));
 
+        // Getting the session by it's id
         $session = $sessionRepository->find(($sessionid));
 
+        // Removing Session onject from Student's collection list
         $student = $student->removeSession($session);
 
+        // Sync new data
         $entityManager->flush();
 
+        // Redirecting to student's page
         return $this->redirectToRoute('show_student', ["id" => $student->getId()]);
     }
 

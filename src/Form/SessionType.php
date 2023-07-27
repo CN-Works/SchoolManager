@@ -2,14 +2,15 @@
 
 namespace App\Form;
 
+use App\Entity\Program;
 use App\Entity\Session;
 use App\Entity\Student;
 use App\Entity\Formation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,10 +35,29 @@ class SessionType extends AbstractType
             ->add('formation', EntityType::class, [
                 "class" => Formation::class,
             ])
-            ->add('students', EntityType::class, [
-                'class' => Student::class,
-                "multiple" => true,
+            ->add('programs', CollectionType::class, [
+                'entry_type' => ProgramType::class,
+                // Allowing to Add & Delete Programs
+                'allow_add' => true,
+                "allow_delete" => true,
+                // Adds Program using JS
+                'prototype' => true,
+                // Because there's no setter
+                "by_reference" => false,
+                'entry_options' => [
+                    'attr' => ['class' => 'form-options'],
+                ],
             ])
+            // ->add('students', CollectionType::class, [
+            //     'class' => Student::class,
+            //     // Allowing to Add & Delete Students
+            //     'allow_add' => true,
+            //     "allow_delete" => true,
+            //     // Adds Student using JS
+            //     'prototype' => true,
+            //     // Because there's no setter
+            //     "by_reference" => false,
+            // ])
             ->add("submit", SubmitType::class)
         ;
     }
