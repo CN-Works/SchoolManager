@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProgramRepository;
 use Symfony\Component\Form\FormTypeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]

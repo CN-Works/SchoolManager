@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+
+{% if edit %}
+    <h1 class="general-title">Edit Session</h1>
+{% else %}
+    <h1 class="general-title">Create a Session</h1>
+{% endif %}
+
+<div>
+    {{ form_start(formAddEditSession) }}
+
+        {{ form_row(formAddEditSession.label) }}
+
+        {{ form_row(formAddEditSession.datebegin) }}
+
+        {{ form_row(formAddEditSession.dateend) }}
+
+        {{ form_row(formAddEditSession.capacity) }}
+
+        {{ form_row(formAddEditSession.formation) }}
+
+        {{ form_row(formAddEditSession.students) }}
+
+        {{ form_row(formAddEditSession.submit) }}
+        
+    {{ form_end(formAddEditSession) }}
+</div>
+
+{% endblock %}

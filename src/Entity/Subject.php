@@ -31,6 +31,10 @@ class Subject
         $this->programs = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->label;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
