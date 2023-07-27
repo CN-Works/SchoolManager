@@ -34,8 +34,9 @@ class SessionType extends AbstractType
             ->add('formation', EntityType::class, [
                 "class" => Formation::class,
             ])
-            ->add('students', CollectionType::class, [
-                'entry_type' => Student::class,
+            ->add('students', EntityType::class, [
+                'class' => Student::class,
+                "multiple" => true,
             ])
             ->add("submit", SubmitType::class)
         ;
