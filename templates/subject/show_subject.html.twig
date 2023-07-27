@@ -7,7 +7,7 @@
 <div class="subject-main">
     <h1 class="general-title">{{ subject.label}}</h1>
 
-    <p>This subject in part of {{ subject.category.label }}'s category</p>
+    <p>This subject in part of <a class="general-card-infobutton" href="{{ path("show_subjectcategory", {"id" : subject.category.id}) }}">{{ subject.category.label }}</a>'s category</p>
 
     <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">

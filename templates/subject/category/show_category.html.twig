@@ -9,10 +9,18 @@
 
     <p>This category contains {{ category.countallsubjects }} subjects.</p>
 
+    <br>
+
+    <table>
+        <tr>
+          <th>Formation</th>
+        </tr>
     {% for subject in category.subjects %}
-        <a href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a>
-        <br>
+        <tr >
+            <td><a class="general-card-infobutton" href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a></td>
+        </tr>
     {% endfor %}
+    </table>
 
     <a class="general-edit-button" href="{{ path("edit_subjectcategory", {"id" : category.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
