@@ -9,6 +9,19 @@
 
     <p>This subject in part of <a class="general-card-infobutton" href="{{ path("show_subjectcategory", {"id" : subject.category.id}) }}">{{ subject.category.label }}</a>'s category</p>
 
+    <table>
+        <tr>
+          <th>Formation</th>
+          <th>Session</th>
+        </tr>
+    {% for program in subject.programs %}
+        <tr >
+            <td><a class="general-card-infobutton" href="{{ path("show_formation", {"id" : program.session.formation.id}) }}">{{ program.session.formation.label }}</a></td>
+            <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : program.session.id}) }}">{{ program.session.label }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
     <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>
