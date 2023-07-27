@@ -115,7 +115,7 @@ class SubjectController extends AbstractController
         $entityManager->remove($category);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_subjectcategory');
+        return $this->redirectToRoute('show_subjectcategory', ["id" => $category->getId()]);
     }
 
     #[Route('/subject/{id}', name: 'show_subject')]

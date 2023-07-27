@@ -16,7 +16,7 @@
 
 
 -- Listage de la structure de la base pour schoolmanager
-CREATE DATABASE IF NOT EXISTS `schoolmanager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `schoolmanager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `schoolmanager`;
 
 -- Listage de la structure de table schoolmanager. category
@@ -31,7 +31,6 @@ INSERT INTO `category` (`id`, `label`) VALUES
 	(1, 'Développement Web'),
 	(2, 'Communication'),
 	(3, 'Bureautique'),
-	(4, 'Oraux'),
 	(5, 'Projet'),
 	(6, 'Démarche'),
 	(7, 'Design');
@@ -44,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Listage des données de la table schoolmanager.doctrine_migration_versions : ~1 rows (environ)
+-- Listage des données de la table schoolmanager.doctrine_migration_versions : ~0 rows (environ)
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 	('DoctrineMigrations\\Version20230721122018', '2023-07-21 12:20:45', 408);
 
@@ -117,14 +116,15 @@ CREATE TABLE IF NOT EXISTS `session` (
   PRIMARY KEY (`id`),
   KEY `IDX_D044D5D45200282E` (`formation_id`),
   CONSTRAINT `FK_D044D5D45200282E` FOREIGN KEY (`formation_id`) REFERENCES `formation` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table schoolmanager.session : ~4 rows (environ)
 INSERT INTO `session` (`id`, `formation_id`, `label`, `datebegin`, `dateend`, `capacity`) VALUES
 	(1, 1, 'Dev. Web n°1', '2022-03-10', '2023-10-25', 15),
 	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12),
 	(3, 2, 'CDA n°1', '2022-10-27', '2023-12-30', 15),
-	(4, 3, 'SEC n°1', '2021-11-10', '2023-01-17', 20);
+	(4, 3, 'SEC n°1', '2021-11-10', '2023-01-17', 20),
+	(5, 1, 'CDA n°2', '2021-07-27', '2023-03-09', 12);
 
 -- Listage de la structure de table schoolmanager. student
 CREATE TABLE IF NOT EXISTS `student` (
@@ -137,15 +137,16 @@ CREATE TABLE IF NOT EXISTS `student` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.student : ~5 rows (environ)
+-- Listage des données de la table schoolmanager.student : ~6 rows (environ)
 INSERT INTO `student` (`id`, `firstname`, `lastname`, `sex`, `birthdate`, `phone`, `email`, `city`) VALUES
 	(1, 'Enzo', 'Ferrari', 'm', '1898-02-18', '0504706080', 'enzo.ferrari@gmail.com', 'Modena'),
 	(2, 'Maxoms', 'Bertozi', 'm', '1998-10-21', '0504069080', 'maxoms68@hotmail.com', 'Colmar'),
 	(3, 'Madinax', 'Citrolent', 'f', '1980-02-01', '0405060808', 'madinax@gmail.com', 'Colmar'),
 	(4, 'Quentino', 'Despacito', 'm', '1995-11-28', '0604088932', 'quentin12@gmail.com', 'Saint Lous'),
-	(5, 'Marie', 'Cyne', 'f', '2003-07-25', '06080409', 'marie.cyne@gmail.com', 'Paris');
+	(5, 'Marie', 'Cyne', 'f', '2003-07-25', '06080409', 'marie.cyne@gmail.com', 'Paris'),
+	(6, 'Marcel', 'Damien', 'm', '1989-07-27', '04069080', 'marcel.damien@gmail.com', 'Colmar');
 
 -- Listage de la structure de table schoolmanager. student_session
 CREATE TABLE IF NOT EXISTS `student_session` (
@@ -158,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `student_session` (
   CONSTRAINT `FK_3D72602CCB944F1A` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.student_session : ~11 rows (environ)
+-- Listage des données de la table schoolmanager.student_session : ~14 rows (environ)
 INSERT INTO `student_session` (`student_id`, `session_id`) VALUES
 	(1, 1),
 	(1, 3),
@@ -170,7 +171,10 @@ INSERT INTO `student_session` (`student_id`, `session_id`) VALUES
 	(4, 3),
 	(5, 1),
 	(5, 2),
-	(5, 4);
+	(5, 4),
+	(6, 1),
+	(6, 4),
+	(6, 5);
 
 -- Listage de la structure de table schoolmanager. subject
 CREATE TABLE IF NOT EXISTS `subject` (

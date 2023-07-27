@@ -45,7 +45,7 @@ class StudentController extends AbstractController
             $entityManager->flush();
 
             // Redirection to all societies
-            return $this->redirectToRoute("app_student");
+            return $this->redirectToRoute("show_student", ["id" => $student->getId()]);
         }
 
         return $this->render('student/new_edit.html.twig', [

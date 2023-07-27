@@ -46,7 +46,7 @@ class FormationController extends AbstractController
             $entityManager->flush();
 
             // Redirection to all societies
-            return $this->redirectToRoute("app_formation");
+            return $this->redirectToRoute("show_formation", ["id" => $formation->getId()]);
         }
 
         return $this->render('formation/new_edit.html.twig', [

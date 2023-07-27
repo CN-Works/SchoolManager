@@ -13,11 +13,13 @@
         <tr>
           <th>Formation</th>
           <th>Session</th>
+          <th>Duration</th>
         </tr>
     {% for program in subject.programs %}
         <tr >
             <td><a class="general-card-infobutton" href="{{ path("show_formation", {"id" : program.session.formation.id}) }}">{{ program.session.formation.label }}</a></td>
             <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : program.session.id}) }}">{{ program.session.label }}</a></td>
+            <td>{{ program.duration }} days</td>
         </tr>
     {% endfor %}
     </table>
