@@ -7,7 +7,7 @@
 <div class="student-main">
     <h1 class="generalt-title">All students</h1>
 
-    <a class="general-new-button" href="{{ path("new_student") }}">
+    <a class="general-new-button unselectable" href="{{ path("new_student") }}">
         <p>Create a new student</p>
     </a>
 
@@ -20,7 +20,7 @@
 
                 <h2 class="general-card-label">{{ student.firstname ~ " " ~ student.lastname }}</h2>
                 <p class="general-card-description">{{  student.firstname ~ " from "~ student.city }}</p>
-                <a class="general-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">
+                <a class="general-card-infobutton unselectable" href="{{ path("show_student", {"id" : student.id}) }}">
                     <p>See more</p>
                 </a>
             </div>

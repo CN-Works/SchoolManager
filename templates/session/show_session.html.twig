@@ -7,7 +7,7 @@
 <div class="session-main">
     <h1 class="general-title">{{ session.label }}</h1>
 
-    <p>This session is part of <a class="general-card-infobutton" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label }}</a> formation.</p>
+    <p>This session is part of <a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label }}</a> formation.</p>
     <p>{{ session.label }} has a capacity of {{ session.capacity }} students,</p>
     <p>It started on <b>{{ session.getDatebeginFormat }}</b> and will end on <b>{{ session.getDateendFormat }}</b>.</p>
 
@@ -19,7 +19,7 @@
         </tr>
     {% for student in session.students %}
         <tr >
-            <td ><a class="general-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">{{ student }}</a></td>
+            <td ><a class="general-card-infobutton unselectable" href="{{ path("show_student", {"id" : student.id}) }}">{{ student }}</a></td>
         </tr>
     {% endfor %}
     </table>
@@ -35,8 +35,8 @@
         </tr>
     {% for program in session.programs %}
         <tr >
-            <td><a class="general-card-infobutton" href="#">{{ program.subject.label }}</a></td>
-            <td><a class="general-card-infobutton" href="#">{{ program.duration }}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="#">{{ program.subject.label }}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="#">{{ program.duration }}</a></td>
         </tr>
     {% endfor %}
     </table>

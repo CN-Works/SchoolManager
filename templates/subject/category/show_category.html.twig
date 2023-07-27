@@ -17,7 +17,7 @@
         </tr>
     {% for subject in category.subjects %}
         <tr >
-            <td><a class="general-card-infobutton" href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a></td>
         </tr>
     {% endfor %}
     </table>

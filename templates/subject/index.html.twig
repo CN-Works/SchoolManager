@@ -7,11 +7,11 @@
 <div class="subject-main">
     <h1 class="general-title">All Subjects</h1>
 
-    <a class="general-new-button" href="{{ path("app_subjectcategory") }}">
+    <a class="general-new-button unselectable" href="{{ path("app_subjectcategory") }}">
         <p>See all categories</p>
     </a>
 
-    <a class="general-new-button" href="{{ path("new_subject") }}">
+    <a class="general-new-button unselectable" href="{{ path("new_subject") }}">
         <p>Create a new subject</p>
     </a>
 
@@ -24,7 +24,7 @@
 
                 <h2 class="general-card-label">{{ subject.label }}</h2>
                 <p class="general-card-description">{{  subject.category.label }}</p>
-                <a class="general-card-infobutton" href="{{ path("show_subject", {"id" : subject.id}) }}">
+                <a class="general-card-infobutton unselectable" href="{{ path("show_subject", {"id" : subject.id}) }}">
                     <p>See more</p>
                 </a>
             </div>

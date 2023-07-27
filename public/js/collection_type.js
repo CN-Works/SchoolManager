@@ -30,7 +30,7 @@ $(document).ready(function() { // Une fois que le document (base.html.twig) HTML
     })
     // fonction permettant l'ajout d'un bouton "Supprimer ce module" dans un bloc "programme", et d'enregistrer l'évenement "click" associé
     function addDeleteLink($moduleForm) {
-        var $removeFormButton = $('<div class="block"><button type="button" class="button">Supprimer ce module</button></div>');
+        var $removeFormButton = $('<a class="general-delete-button">Delete</a>');
         $moduleForm.append($removeFormButton)
     
         $removeFormButton.on('click', function(e) {

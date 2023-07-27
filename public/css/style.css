@@ -162,7 +162,7 @@
 
 .general-card {
     width: calc(100%/6 - 10px);
-    min-width: 250px;
+    min-width: 200px;
     margin: 5px;
 
     display: flex;
@@ -191,7 +191,7 @@
 
 .general-card-label {
     color: var(--blue-light);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
     width: 100%;
     padding: 0 2px;
@@ -199,6 +199,7 @@
 
 .general-card-description {
     color: var(--blue-light);
+    font-size: 0.95rem;
 
     width: 100%;
     padding: 0 2px;
@@ -261,7 +262,7 @@ nav {
 }
 
 .nav-option:hover {
-    background-color: var(--blue-light);
+    background-color: var(--green-light);
 }
 
 .nav-option:visited {
@@ -338,7 +339,7 @@ footer {
 }
 
 .footer-iconfig:hover {
-    background-color: var(--green-light);
+    background-color: var(--green);
 }
 
 .footer-iconimg {

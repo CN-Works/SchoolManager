@@ -19,9 +19,9 @@
         </tr>
     {% for session in formation.sessions %}
         <tr >
-            <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label}}</a></td>
-            <td><a class="general-card-infobutton" href="">{{ session.getDatebeginFormat }}</a></td>
-            <td><a class="general-card-infobutton" href="">{{ session.getDateendFormat }}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label}}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="">{{ session.getDatebeginFormat }}</a></td>
+            <td><a class="general-card-infobutton unselectable" href="">{{ session.getDateendFormat }}</a></td>
         </tr>
     {% endfor %}
     </table>
