@@ -10,7 +10,7 @@
     <h1 class="general-title">Create a Session</h1>
 {% endif %}
 
-<div>
+<div class="session-main">
     {{ form_start(formAddEditSession) }}
 
         {{ form_row(formAddEditSession.label) }}
@@ -23,7 +23,23 @@
 
         {{ form_row(formAddEditSession.formation) }}
 
-        {{ form_row(formAddEditSession.students) }}
+        <ul>
+            {% for program in formAddEditSession.programs %}
+                <li>
+                    {{ form_errors(program) }}
+                    {{ form_widget(program) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        {# <ul>
+            {% for student in formAddEditSession.students %}
+                <li>
+                    {{ form_errors(student) }}
+                    {{ form_widget(student) }}
+                </li>
+            {% endfor %}
+        </ul> #}
 
         {{ form_row(formAddEditSession.submit) }}
         

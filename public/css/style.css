@@ -270,8 +270,10 @@ nav {
 }
 
 footer {
-    height: 400px;
+    height: 450px;
     width: 100%;
+
+    padding: 25px 0;
 
     background-color: var(--blue);
 
