@@ -13,16 +13,35 @@
 
     <br>
 
-    <table class="general-basic-table">
+    <table>
         <tr>
-          <th>Students</th>
+          <th>Student</th>
         </tr>
     {% for student in session.students %}
-        <tr class="general-basic-table-tr">
-            <td class="general-basic-table-td"><a class="general-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">{{ student }}</a></td>
+        <tr >
+            <td ><a class="general-card-infobutton" href="{{ path("show_student", {"id" : student.id}) }}">{{ student }}</a></td>
         </tr>
     {% endfor %}
     </table>
+
+    <br>
+
+    <b>All courses during the session</b>
+
+    <table>
+        <tr>
+          <th>Subject</th>
+          <th>Duration (days)</th>
+        </tr>
+    {% for program in session.programs %}
+        <tr >
+            <td><a class="general-card-infobutton" href="#">{{ program.subject.label }}</a></td>
+            <td><a class="general-card-infobutton" href="#">{{ program.duration }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
 
     {# <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
