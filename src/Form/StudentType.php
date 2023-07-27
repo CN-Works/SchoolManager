@@ -28,9 +28,10 @@ class StudentType extends AbstractType
             ->add('phone', TextType::class)
             ->add('email', TextType::class)
             ->add('city', TextType::class)
-            ->add('sessions', EntityType::class, [
-                'class' => Session::class,
-                "multiple" => true,
+            ->add('sessions', CollectionType::class, [
+                'entry_type' => StudentType::class,
+                'allow_add' => true,
+                'prototype' => true,
             ])
             ->add("submit", SubmitType::class)
         ;

@@ -49,7 +49,7 @@ class SessionController extends AbstractController
             $entityManager->flush();
 
             // Redirection to all societies
-            return $this->redirectToRoute("app_session");
+            return $this->redirectToRoute("show_session", ["id" => $session->getId()]);
         }
 
         return $this->render('session/new_edit.html.twig', [
