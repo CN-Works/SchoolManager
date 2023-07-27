@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.category : ~7 rows (environ)
+-- Listage des données de la table schoolmanager.category : ~6 rows (environ)
 INSERT INTO `category` (`id`, `label`) VALUES
 	(1, 'Développement Web'),
 	(2, 'Communication'),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Listage des données de la table schoolmanager.doctrine_migration_versions : ~0 rows (environ)
+-- Listage des données de la table schoolmanager.doctrine_migration_versions : ~1 rows (environ)
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 	('DoctrineMigrations\\Version20230721122018', '2023-07-21 12:20:45', 408);
 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   CONSTRAINT `FK_D044D5D45200282E` FOREIGN KEY (`formation_id`) REFERENCES `formation` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.session : ~4 rows (environ)
+-- Listage des données de la table schoolmanager.session : ~5 rows (environ)
 INSERT INTO `session` (`id`, `formation_id`, `label`, `datebegin`, `dateend`, `capacity`) VALUES
 	(1, 1, 'Dev. Web n°1', '2022-03-10', '2023-10-25', 15),
 	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12),
@@ -166,9 +166,9 @@ INSERT INTO `student_session` (`student_id`, `session_id`) VALUES
 	(2, 1),
 	(2, 2),
 	(2, 4),
+	(2, 5),
 	(3, 2),
 	(4, 1),
-	(4, 3),
 	(5, 1),
 	(5, 2),
 	(5, 4),
