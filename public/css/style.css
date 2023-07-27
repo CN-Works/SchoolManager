@@ -262,7 +262,7 @@ nav {
 }
 
 .nav-option:hover {
-    background-color: var(--green-light);
+    background-color: var(--green);
 }
 
 .nav-option:visited {
