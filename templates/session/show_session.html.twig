@@ -5,15 +5,19 @@
 {% block body %}
 
 <div class="session-main">
-    <h1 class="general-title">{{ student.firstname ~ " " ~ student.lastname}}</h1>
+    <h1 class="general-title">{{ session.label }}</h1>
+
+    <p>This session is part of <a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label }}</a> formation.</p>
+    <p>{{ session.label }} has a capacity of {{ session.capacity }} students,</p>
+    <p>It started on {{ session.getDatebeginFormat }} and will end on {{ session.getDateendFormat }}.</p> 
 
     {# <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">
-        <img class="general-edit-button-icon" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
+        <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>
     </a>
 
     <a class="general-delete-button" href="{{ path("delete_student", {"id" : student.id} ) }}">
-        <img class="general-delete-button-icon" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
+        <img class="general-delete-button-icon unselectable" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
         <p>Delete</p>
     </a> #}
 

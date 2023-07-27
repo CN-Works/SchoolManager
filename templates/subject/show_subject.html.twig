@@ -10,12 +10,12 @@
     <p>This subject in part of {{ subject.category.label }}'s category</p>
 
     <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">
-        <img class="general-edit-button-icon" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
+        <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>
     </a>
 
     <a class="general-delete-button" href="{{ path("delete_subject", {"id" : subject.id} ) }}">
-        <img class="general-delete-button-icon" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
+        <img class="general-delete-button-icon unselectable" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
         <p>Delete</p>
     </a>
 

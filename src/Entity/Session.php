@@ -72,6 +72,10 @@ class Session
         return $interval->format("%r%a");
     }
 
+    public function getDatebeginFormat(): ?string {
+        return $this->datebegin->format("d F Y");
+    }
+
     public function getDatebegin(): ?\DateTimeInterface
     {
         return $this->datebegin;
@@ -82,6 +86,10 @@ class Session
         $this->datebegin = $datebegin;
 
         return $this;
+    }
+
+    public function getDateendFormat(): ?string {
+        return $this->datebegin->format("d F Y");
     }
 
     public function getDateend(): ?\DateTimeInterface
