@@ -269,6 +269,62 @@ nav {
     color: var(--light);
 }
 
+footer {
+    height: 400px;
+    width: 100%;
+
+    background-color: var(--blue);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-bold {
+    color: var(--light);
+    font-weight: 500;
+    font-size: 1.2rem;
+
+    margin: 5px;
+}
+
+.footer-text {
+    color: var(--light);
+    font-weight: 300;
+    font-size: 0.9rem;
+
+    margin: 2px;
+}
+
+.footer-text-categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-text-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 5px;
+    margin: 0 20px;
+}
+
+.footer-iconfig {
+
+}
+
+.footer-iconimg {
+    
+}
+
+.footer-logo {
+    width: 150px;
+}
+
 
 /* Students */
 .student-main {
