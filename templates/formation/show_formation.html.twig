@@ -9,6 +9,23 @@
 
     <p>{{ formation.description }}</p>
 
+    <br>
+
+    <table>
+        <tr>
+          <th>Session</th>
+          <th>Beginning</th>
+          <th>Ending</th>
+        </tr>
+    {% for session in formation.sessions %}
+        <tr >
+            <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label}}</a></td>
+            <td><a class="general-card-infobutton" href="">{{ session.getDatebeginFormat }}</a></td>
+            <td><a class="general-card-infobutton" href="">{{ session.getDateendFormat }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
     <a class="general-edit-button" href="{{ path("edit_formation", {"id" : formation.id}) }}">
         <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
         <p>Edit</p>

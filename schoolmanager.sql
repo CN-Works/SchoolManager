@@ -119,10 +119,12 @@ CREATE TABLE IF NOT EXISTS `session` (
   CONSTRAINT `FK_D044D5D45200282E` FOREIGN KEY (`formation_id`) REFERENCES `formation` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.session : ~2 rows (environ)
+-- Listage des données de la table schoolmanager.session : ~4 rows (environ)
 INSERT INTO `session` (`id`, `formation_id`, `label`, `datebegin`, `dateend`, `capacity`) VALUES
 	(1, 1, 'Dev. Web n°1', '2022-03-10', '2023-10-25', 15),
-	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12);
+	(2, 1, 'Dev. Web n°2', '2023-02-25', '2023-12-25', 12),
+	(3, 2, 'CDA n°1', '2022-10-27', '2023-12-30', 15),
+	(4, 3, 'SEC n°1', '2021-11-10', '2023-01-17', 20);
 
 -- Listage de la structure de table schoolmanager. student
 CREATE TABLE IF NOT EXISTS `student` (
@@ -156,15 +158,19 @@ CREATE TABLE IF NOT EXISTS `student_session` (
   CONSTRAINT `FK_3D72602CCB944F1A` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table schoolmanager.student_session : ~7 rows (environ)
+-- Listage des données de la table schoolmanager.student_session : ~11 rows (environ)
 INSERT INTO `student_session` (`student_id`, `session_id`) VALUES
 	(1, 1),
+	(1, 3),
 	(2, 1),
 	(2, 2),
+	(2, 4),
 	(3, 2),
 	(4, 1),
+	(4, 3),
 	(5, 1),
-	(5, 2);
+	(5, 2),
+	(5, 4);
 
 -- Listage de la structure de table schoolmanager. subject
 CREATE TABLE IF NOT EXISTS `subject` (
