@@ -313,12 +313,35 @@ footer {
     margin: 0 20px;
 }
 
-.footer-iconfig {
+.footer-iconlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    gap: 20px;
+}
+
+.footer-iconfig {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--blue-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    transition: all, 0.5s;
+}
+
+.footer-iconfig:hover {
+    background-color: var(--green-light);
 }
 
 .footer-iconimg {
-    
+    height: 15px;
 }
 
 .footer-logo {

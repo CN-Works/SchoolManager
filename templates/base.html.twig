@@ -9,6 +9,7 @@
 
         {% endblock %}
             <script src="{{ asset('js/main.js') }}"></script>
+            <script src="{{ asset("js/collection_type.js") }}"></script>
         {% block javascripts %}
         {% endblock %}
     </head>
@@ -63,7 +64,15 @@
 
             <div class="footer-iconlist">
                 <figure class="footer-iconfig">
-                    <img class="footer-iconoimg" src="" alt="">
+                    <img class="footer-iconoimg" src="{{ asset("img/icon_facebook.png") }}" alt="">
+                </figure>
+
+                <figure class="footer-iconfig">
+                    <img class="footer-iconoimg" src="{{ asset("img/icon_instagram.png") }}" alt="">
+                </figure>
+
+                <figure class="footer-iconfig">
+                    <img class="footer-iconoimg" src="{{ asset("img/icon_twitter.png") }}" alt="">
                 </figure>
             </div>
 
