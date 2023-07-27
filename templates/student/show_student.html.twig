@@ -24,11 +24,13 @@
         <tr>
           <th>Formation</th>
           <th>Session</th>
+          <th>Action</th>
         </tr>
     {% for session in student.sessions %}
         <tr >
             <td><a class="general-card-infobutton" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label}}</a></td>
             <td><a class="general-card-infobutton" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label }}</a></td>
+            <td><a class="general-card-infobutton" href="{{ path("interrupt_student", {"id" : student.id, "sessionid" : session.id}) }}" >Interrupt</a></td>
         </tr>
     {% endfor %}
     </table>

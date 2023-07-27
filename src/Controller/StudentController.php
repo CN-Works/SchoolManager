@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
+use App\Repository\SessionRepository;
 use App\Repository\StudentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -58,10 +59,25 @@ class StudentController extends AbstractController
     public function delete(StudentRepository $studentRepository, EntityManagerInterface $entityManager, $id)
     {   
         $student = $studentRepository->find(($id));
+        
         $entityManager->remove($student);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_student');
+    }
+
+    #[Route('/student/{id}/interrupt/{sessionid}', name: 'interrupt_student')]
+    public function interrupt(StudentRepository $studentRepository, SessionRepository $sessionRepository, EntityManagerInterface $entityManager, $id, $sessionid)
+    {   
+        $student = $studentRepository->find(($id));
+
+        $session = $sessionRepository->find(($sessionid));
+
+        $student = $student->removeSession($session);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_student', ["id" => $student->getId()]);
     }
 
     #[Route('/student/{id}', name: 'show_student')]
