@@ -380,3 +380,15 @@ footer {
     width: 100%;
     padding: 20px;
 }
+
+/* Login */
+
+.login-main {
+    min-height: 90svh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
