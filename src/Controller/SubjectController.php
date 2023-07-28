@@ -35,7 +35,9 @@ class SubjectController extends AbstractController
     }
 
     #[Route('/subject/new', name: 'new_subject')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/subject/{id}/edit', name: 'edit_subject')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new_edit(Subject $subject = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$subject) {
@@ -67,7 +69,9 @@ class SubjectController extends AbstractController
     }
 
     #[Route('/subjectcategory/new', name: 'new_subjectcategory')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/subjectcategory/{id}/edit', name: 'edit_subjectcategory')]
+    #[IsGranted('ROLE_ADMIN')]
     public function category_new_edit(Category $category = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$category) {
@@ -99,6 +103,7 @@ class SubjectController extends AbstractController
     }
 
     #[Route('/subject/{id}/delete', name: 'delete_subject')]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(SubjectRepository $subjectRepository, EntityManagerInterface $entityManager, $id)
     {   
         $subject = $subjectRepository->find(($id));
@@ -109,6 +114,7 @@ class SubjectController extends AbstractController
     }
 
     #[Route('/subjectcategory/{id}/delete', name: 'delete_subjectcategory')]
+    #[IsGranted('ROLE_ADMIN')]
     public function category_delete(CategoryRepository $categoryRepository, EntityManagerInterface $entityManager, $id)
     {   
         $category = $categoryRepository->find(($id));

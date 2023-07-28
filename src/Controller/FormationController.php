@@ -24,7 +24,9 @@ class FormationController extends AbstractController
     }
 
     #[Route('/formation/new', name: 'new_formation')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/formation/{id}/edit', name: 'edit_formation')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new_edit(Formation $formation = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$formation) {
@@ -56,6 +58,7 @@ class FormationController extends AbstractController
     }
 
     #[Route('/formation/{id}/delete', name: 'delete_formation')]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(FormationRepository $formationRepository, EntityManagerInterface $entityManager, $id)
     {   
         $formation = $formationRepository->find(($id));

@@ -24,7 +24,9 @@ class StudentController extends AbstractController
     }
 
     #[Route('/student/new', name: 'new_student')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/student/{id}/edit', name: 'edit_student')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new_edit(Student $student = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$student) {
@@ -56,6 +58,7 @@ class StudentController extends AbstractController
     }
 
     #[Route('/student/{id}/delete', name: 'delete_student')]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(StudentRepository $studentRepository, EntityManagerInterface $entityManager, $id)
     {   
         $student = $studentRepository->find(($id));
@@ -67,6 +70,7 @@ class StudentController extends AbstractController
     }
 
     #[Route('/student/{id}/interrupt/{sessionid}', name: 'interrupt_student')]
+    #[IsGranted('ROLE_ADMIN')]
     public function interrupt(StudentRepository $studentRepository, SessionRepository $sessionRepository, EntityManagerInterface $entityManager, $id, $sessionid)
     {   
         // Getting the student entity by id

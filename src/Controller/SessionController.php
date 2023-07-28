@@ -27,7 +27,9 @@ class SessionController extends AbstractController
     }
 
     #[Route('/session/new', name: 'new_session')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/session/{id}/edit', name: 'edit_session')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new_edit(Session $session = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$session) {
@@ -59,6 +61,7 @@ class SessionController extends AbstractController
     }
 
     #[Route('/session/{id}/delete', name: 'delete_session')]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(SessionRepository $sessionRepository, EntityManagerInterface $entityManager, $id)
     {   
         $session = $sessionRepository->find(($id));
