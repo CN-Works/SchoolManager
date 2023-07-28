@@ -237,12 +237,21 @@ nav {
 
     height: 10svh;
     background-color: var(--blue);
+
+    overflow: hidden;
 }
 
 .nav-logo {
-    height: 40%;
-
+    height: 100%;
     margin: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo-image {
+    height: 40%;
 }
 
 .nav-list {
@@ -296,8 +305,13 @@ footer {
     color: var(--light);
     font-weight: 300;
     font-size: 0.9rem;
+    text-decoration: none;
 
     margin: 2px;
+}
+
+.footer-text:visted {
+    color: var(--light);
 }
 
 .footer-text-categories {
@@ -391,4 +405,13 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+/* Home */
+.home-main {
+    min-height: 90svh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
 }

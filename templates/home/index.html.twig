@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="home-main">
+    {% if app.user.username is defined %}
+        <h1>Hi {{ app.user.username }}, welcome to BearFormation </h1>
+    {% else %}
+        <h1>Welcome to BearFormation !</h1>
+    {% endif %}
+</div>
+
+{% endblock %}

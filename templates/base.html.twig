@@ -18,7 +18,9 @@
     </head>
     <body>
         <nav>
-            <img class="nav-logo" src="{{ asset("img/bear_formation.png") }}" alt="Site logo">
+            <a class="nav-logo" href="{{ path("app_home") }}">
+                <img class="nav-logo-image unselectable" src="{{ asset("img/bear_formation.png") }}" alt="Site logo">
+            </a>
             <div class="nav-list">
                 <a class="nav-option" href="{{ path("app_formation") }}">
                     <p>Formations</p>
@@ -58,9 +60,17 @@
                 <div class="footer-text-category">
                     <b class="footer-bold">Help</b>
 
-                    <p class="footer-text">Connection</p>
+                    <p class="footer-text">Account</p>
                     <p class="footer-text">My profile</p>
                     <p class="footer-text">Blog</p>
+                </div>
+
+                <div class="footer-text-category">
+                    <b class="footer-bold">Connection</b>
+
+                    <a class="footer-text" href="{{ path("app_register") }}">Register</a>
+                    <a class="footer-text" href="{{ path("app_login") }}">Login</a>
+                    <a class="footer-text" href="{{ path("app_logout") }}">Logout</a>
                 </div>
 
             </div>
