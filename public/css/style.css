@@ -354,7 +354,7 @@ footer {
 }
 
 .footer-iconfig:hover {
-    background-color: var(--green);
+    background-color: var(--green-light);
 }
 
 .footer-iconimg {
@@ -395,7 +395,17 @@ footer {
     padding: 20px;
 }
 
-/* Login */
+/* Login & Register */
+
+.register-main {
+    min-height: 90svh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .login-main {
     min-height: 90svh;

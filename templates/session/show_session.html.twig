@@ -41,17 +41,17 @@
     {% endfor %}
     </table>
 
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
+        <a class="general-edit-button" href="{{ path("edit_session", {"id" : session.id}) }}">
+            <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
+            <p>Edit</p>
+        </a>
 
-
-    <a class="general-edit-button" href="{{ path("edit_session", {"id" : session.id}) }}">
-        <img class="general-edit-button-icon unselectable" src="{{ asset("img/icon_edit.png") }}" alt="Edit icon">
-        <p>Edit</p>
-    </a>
-
-    <a class="general-delete-button" href="{{ path("delete_session", {"id" : session.id} ) }}">
-        <img class="general-delete-button-icon unselectable" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
-        <p>Delete</p>
-    </a>
+        <a class="general-delete-button" href="{{ path("delete_session", {"id" : session.id} ) }}">
+            <img class="general-delete-button-icon unselectable" src="{{ asset("img/icon_trash.png") }}" alt="Edit icon">
+            <p>Delete</p>
+        </a>
+    {% endif %}
 
 </div>
 

@@ -7,9 +7,11 @@
 <div class="subject-main">
     <h1 class="general-title">All Subjects Categories</h1>
 
-    <a class="general-new-button unselectable" href="{{ path("new_subjectcategory") }}">
-        <p>Create a new category</p>
-    </a>
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
+        <a class="general-new-button unselectable" href="{{ path("new_subjectcategory") }}">
+            <p>Create a new category</p>
+        </a>
+    {% endif %}
 
     <div class="general-cards">
         {% for category in allcategories %}

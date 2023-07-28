@@ -7,9 +7,12 @@
 <div class="session-main">
     <h1 class="general-title">All sessions</h1>
 
-    <a class="general-new-button unselectable" href="{{ path("new_session") }}">
-        <p>Create a new session</p>
-    </a>
+
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
+        <a class="general-new-button unselectable" href="{{ path("new_session") }}">
+            <p>Create a new session</p>
+        </a>
+    {% endif %}
 
     <div class="general-cards">
         {% for session in allsessions %}

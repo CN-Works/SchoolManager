@@ -7,9 +7,11 @@
 <div class="student-main">
     <h1 class="generalt-title">All students</h1>
 
-    <a class="general-new-button unselectable" href="{{ path("new_student") }}">
-        <p>Create a new student</p>
-    </a>
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
+        <a class="general-new-button unselectable" href="{{ path("new_student") }}">
+            <p>Create a new student</p>
+        </a>
+    {% endif %}
 
     <div class="general-cards">
         {% for student in allstudents %}
