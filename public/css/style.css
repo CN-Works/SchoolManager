@@ -237,6 +237,7 @@ nav {
     justify-content: space-between;
 
     height: 10svh;
+    width: 100%;
     background-color: var(--blue);
 
     overflow: hidden;
