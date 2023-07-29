@@ -13,20 +13,29 @@
             You are logged in as {{ app.user.username }}, <a class="general-delete-button" href="{{ path('app_logout') }}">Logout</a>
         </div>
         {% else %}
-            <h1 class="login-form-title">Register</h1>
-
             {{ form_errors(registrationForm) }}
 
-            {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.username) }}
-                {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
-                }) }}
-                {{ form_row(registrationForm.agreeTerms) }}
+            <div class="registration-form">
+                {{ form_start(registrationForm) }}
+                    <h1 class="register-form-title">Register</h1>
 
-                <button type="submit" class="btn">Register</button>
-            {{ form_end(registrationForm) }}
+                    <div class="register-form-descriptionbox">
+                        <p class="login-form-description">Already member ? <a class="connect-register-link" href="{{ path("app_login") }}">Log in</a></p>
+                    </div>
+
+                    {{ form_row(registrationForm.email) }}
+
+                    {{ form_row(registrationForm.username) }}
+                    
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+                    <button type="submit" class="login-register-validate">Register</button>
+                {{ form_end(registrationForm) }}
+            </div>
         {% endif %}
     </div>
 {% endblock %}
