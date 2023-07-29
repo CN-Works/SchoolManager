@@ -14,6 +14,7 @@
 :root {
     --dark : #30343F;
     --light : #FAFAFF;
+    --light-blue : #F0F3F8;
     --blue : #242E40;
     --blue-dark : #262D3B;
     --blue-light : #3C4A5B;
@@ -280,17 +281,17 @@ nav {
 }
 
 footer {
-    height: 450px;
+    min-height: 400px;
     width: 100%;
 
-    padding: 25px 0;
+    padding: 35px 0;
 
     background-color: var(--blue);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .footer-bold {
@@ -364,7 +365,7 @@ footer {
 }
 
 .footer-logo {
-    width: 125px;
+    width: 100px;
 }
 
 
@@ -412,11 +413,108 @@ footer {
 .login-main {
     min-height: 90svh;
     width: 100%;
+    background-color: var(--light-blue);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.login-form {
+    width: 450px;
+    padding: 50px 25px;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    gap: 20px;
+}
+
+.login-form-inputbox {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.login-form-title {
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+
+.login-form-descriptionbox {
+    display: flex;
+
+    margin: 3px 0;
+}
+
+.login-form-description {
+    color: var(--blue-light);
+    font-size: 1rem;
+}
+
+.connect-register-link {
+    color: var(--green-light);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.connect-register-link:hover {
+    text-decoration: underline;
+}
+
+.connect-register-link:visted {
+    color: var(--green-light);
+}
+
+.login-register-validate {
+    border: none;
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    font-size: 1rem;
+
+    background-color: var(--green-light);
+
+    border-radius: 15px;
+
+    transition: all, 0.5s;
+}
+
+.login-register-validate:hover {
+    background-color: var(--green);
+}
+
+label {
+    color: var(--blue-light);
+}
+
+input[type=text], input[type=password], input[type=email] {
+    border: none;
+    outline: 2px solid #BDCBD8;
+    padding: 5px 3px;
+    border-radius: 5px;
+
+    background-color: #cc1919;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border: none;
+    outline: 2px solid var(--dark);
+
+    background-color: #ffffff;
+}
+
+input[type=text]:defined, input[type=password]:defined, input[type=email]:defined {
+    background-color: #ffffff;
 }
 
 /* Home */

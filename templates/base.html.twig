@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="{{ asset("img/bear.png") }}">
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
@@ -25,15 +26,14 @@
                 <a class="nav-option" href="{{ path("app_formation") }}">
                     <p>Formations</p>
                 </a>
-                <a class="nav-option" href="{{ path("app_session") }}">
-                    <p>Sessions</p>
-                </a>
-                <a class="nav-option" href="{{ path("app_subject") }}">
+                <a class="nav-option" href="{{ path("app_subjectcategory") }}">
                     <p>Subjects</p>
                 </a>
-                <a class="nav-option" href="{{ path("app_student") }}">
-                    <p>Students</p>
-                </a>
+                {% if is_granted('ROLE_TEACHER') %}
+                    <a class="nav-option" href="{{ path("app_student") }}">
+                        <p>Students</p>
+                    </a>
+                {% endif %}>
             </div>
         </nav>
 
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="footer-text-category">
-                    <b class="footer-bold">Connection</b>
+                    <b class="footer-bold">Connect</b>
 
                     <a class="footer-text" href="{{ path("app_register") }}">Register</a>
                     <a class="footer-text" href="{{ path("app_login") }}">Login</a>
