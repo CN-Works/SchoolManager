@@ -27,17 +27,17 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',
-                    ]),
+                ]),
                 ],
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Les mots de passes ne correspondent pas !',
+                'invalid_message' => "Passwords don't match !",
                 'mapped' => false,
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Répéter le mot de passe'],
+                'first_options'  => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat password',],
             ])
         ;
     }
