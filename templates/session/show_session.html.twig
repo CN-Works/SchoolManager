@@ -28,18 +28,20 @@
 
     <b>All courses during the session</b>
 
-    <table>
-        <tr>
-          <th>Subject</th>
-          <th>Duration (days)</th>
-        </tr>
-    {% for program in session.programs %}
-        <tr >
-            <td><a class="general-card-infobutton unselectable" href="#">{{ program.subject.label }}</a></td>
-            <td><a class="general-card-infobutton unselectable" href="#">{{ program.duration }}</a></td>
-        </tr>
-    {% endfor %}
-    </table>
+    {% if session.programs | length > 0 %}
+        <table>
+            <tr>
+            <th>Subject</th>
+            <th>Duration (days)</th>
+            </tr>
+            {% for program in session.programs %}
+                <tr >
+                    <td><a class="general-card-infobutton unselectable" href="#">{{ program.subject.label }}</a></td>
+                    <td><a class="general-card-infobutton unselectable" href="#">{{ program.duration }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
         <a class="general-edit-button" href="{{ path("edit_session", {"id" : session.id}) }}">

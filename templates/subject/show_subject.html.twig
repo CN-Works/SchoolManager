@@ -9,20 +9,22 @@
 
     <p>This subject in part of <a class="general-card-infobutton unselectable" href="{{ path("show_subjectcategory", {"id" : subject.category.id}) }}">{{ subject.category.label }}</a>'s category</p>
 
-    <table>
-        <tr>
-          <th>Formation</th>
-          <th>Session</th>
-          <th>Duration</th>
-        </tr>
-    {% for program in subject.programs %}
-        <tr >
-            <td><a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : program.session.formation.id}) }}">{{ program.session.formation.label }}</a></td>
-            <td><a class="general-card-infobutton unselectable" href="{{ path("show_session", {"id" : program.session.id}) }}">{{ program.session.label }}</a></td>
-            <td>{{ program.duration }} days</td>
-        </tr>
-    {% endfor %}
-    </table>
+    {% if subject.programs | length > 0 %}
+        <table>
+            <tr>
+            <th>Formation</th>
+            <th>Session</th>
+            <th>Duration</th>
+            </tr>
+            {% for program in subject.programs %}
+                <tr >
+                    <td><a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : program.session.formation.id}) }}">{{ program.session.formation.label }}</a></td>
+                    <td><a class="general-card-infobutton unselectable" href="{{ path("show_session", {"id" : program.session.id}) }}">{{ program.session.label }}</a></td>
+                    <td>{{ program.duration }} days</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
         <a class="general-edit-button" href="{{ path("edit_subject", {"id" : subject.id}) }}">

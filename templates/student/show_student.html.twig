@@ -20,20 +20,23 @@
 
     <br>
 
-    <table>
-        <tr>
-          <th>Formation</th>
-          <th>Session</th>
-          <th>Action</th>
-        </tr>
-    {% for session in student.sessions %}
-        <tr >
-            <td><a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label}}</a></td>
-            <td><a class="general-card-infobutton unselectable" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label }}</a></td>
-            <td><a class="general-card-infobutton unselectable" href="{{ path("interrupt_student", {"id" : student.id, "sessionid" : session.id}) }}" >Interrupt</a></td>
-        </tr>
-    {% endfor %}
-    </table>
+    {% if student.sessions | length > 0 %}
+        <table>
+            <tr>
+            <th>Formation</th>
+            <th>Session</th>
+            <th>Action</th>
+            </tr>
+        {% for session in student.sessions %}
+            <tr >
+                <td><a class="general-card-infobutton unselectable" href="{{ path("show_formation", {"id" : session.formation.id}) }}">{{ session.formation.label}}</a></td>
+                <td><a class="general-card-infobutton unselectable" href="{{ path("show_session", {"id" : session.id}) }}">{{ session.label }}</a></td>
+                <td><a class="general-card-infobutton unselectable" href="{{ path("interrupt_student", {"id" : student.id, "sessionid" : session.id}) }}" >Interrupt</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+    
 
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
         <a class="general-edit-button" href="{{ path("edit_student", {"id" : student.id}) }}">

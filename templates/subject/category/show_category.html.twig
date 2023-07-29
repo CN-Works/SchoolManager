@@ -11,16 +11,19 @@
 
     <br>
 
-    <table>
-        <tr>
-          <th>Formation</th>
-        </tr>
-    {% for subject in category.subjects %}
-        <tr >
-            <td><a class="general-card-infobutton unselectable" href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a></td>
-        </tr>
-    {% endfor %}
-    </table>
+    {% if category.subjects | length > 0 %}
+        <table>
+            <tr>
+            <th>Formation</th>
+            </tr>
+            {% for subject in category.subjects %}
+                <tr >
+                    <td><a class="general-card-infobutton unselectable" href="{{ path("show_subject", {"id" : subject.id }) }}"> {{ subject.label }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
 
 
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER') %}
