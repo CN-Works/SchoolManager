@@ -237,6 +237,7 @@ nav {
     justify-content: space-between;
 
     height: 10svh;
+    min-height: 75px;
     width: 100%;
     background-color: var(--blue);
 
@@ -257,13 +258,14 @@ nav {
 }
 
 .nav-list {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .nav-option {
-    height: 10svh;
+    height: 100%;
     color: var(--light);
     text-decoration: none;
     padding: 0 20px;
@@ -434,7 +436,7 @@ footer {
     flex-direction: column;
     justify-content: space-around;
 
-    gap: 20px;
+    gap: 25px;
 }
 
 .login-form-inputbox {
