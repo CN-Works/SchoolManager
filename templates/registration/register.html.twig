@@ -7,13 +7,13 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <div class="register-main">
+    <div class="login-main">
         {% if app.user %}
         <div class="mb-3">
             You are logged in as {{ app.user.username }}, <a class="general-delete-button" href="{{ path('app_logout') }}">Logout</a>
         </div>
         {% else %}
-            <h1>Register</h1>
+            <h1 class="login-form-title">Register</h1>
 
             {{ form_errors(registrationForm) }}
 
