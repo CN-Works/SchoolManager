@@ -625,3 +625,33 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
     width: 50%;
     aspect-ratio: 4/3;
 }
+
+.home-pageone-seemore {
+    border: none;
+    width: 200px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+
+    margin: 20px 0 ;
+
+    background-color: var(--blue-electric);
+
+    border-radius: 15px;
+
+    transition: all, 0.5s;
+}
+
+.home-pageone-seemore {
+    color: #ffffff;
+}
+
+.home-pageone-seemore:hover {
+    background-color: var(--blue-electric-hover);
+}
