@@ -41,6 +41,14 @@
     margin: 30px 0;
 }
 
+.general-description {
+    color: var(--blue-light);
+
+    width: 100%;
+    
+    margin: 5px 0;
+}
+
 .general-new-button {
     background-color: var(--blue-light);
     color: white;
@@ -161,9 +169,7 @@
 }
 
 .general-card {
-    width: calc(100%/6 - 10px);
-    min-width: 300px;
-    max-width: 400px;
+    width: 250px;
     margin: 5px;
 
     display: flex;
@@ -171,12 +177,12 @@
     align-items: center;
     justify-content: space-between;
 
-    gap: 5px;
+    gap: 2px;
 }
 
 .general-card-banner {
     width: 100%;
-    height: 150px;
+    aspect-ratio: 4/3;
 
     display: flex;
     align-items: center;
@@ -196,6 +202,8 @@
     color: var(--blue-light);
     font-size: 1.2rem;
 
+    height: 50px;
+
     width: 100%;
     padding: 0 2px;
 }
@@ -203,6 +211,8 @@
 .general-card-description {
     color: var(--blue-light);
     font-size: 0.95rem;
+
+    height: 50px;
 
     width: 100%;
     padding: 0 2px;
@@ -588,4 +598,30 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
 
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+}
+
+.home-pageone {
+    height: 90svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    padding: 0 10px;
+}
+
+.home-pageone-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 500px;
+    max-width: 100%;
+}
+
+.home-pageone-img {
+    width: 50%;
+    aspect-ratio: 4/3;
 }

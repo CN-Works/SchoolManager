@@ -5,11 +5,22 @@
 {% block body %}
 
 <div class="home-main">
-    {% if app.user.username is defined %}
-        <h2>Hi {{ app.user.username }}, welcome to BearFormation </h2>
-    {% else %}
-        <h2>Welcome to BearFormation !</h2>
-    {% endif %}
+    <div class="home-pageone">
+        <div class="home-pageone-texts">
+            {% if app.user.username is defined %}
+                <h2 class="general-title">Hi {{ app.user.username }}, welcome to BearFormation !</h2>
+            {% else %}
+                <h2 class="general-title">Welcome to BearFormation !</h2>
+            {% endif %}
+
+            <div>
+                <p class="general-description">Welcome to the new "My learning" here at BearFormation.</p>
+                <p class="general-description">This will be your hub to all the tutorials we offer and your learning progress.</p>
+                <p class="general-description">We hope you will continue to learn with us.</p>
+            </div>
+        </div>
+        <img class="home-pageone-img unselectable" src="{{ asset("img/learning.svg") }}" alt="A student learning">
+    </div>
 </div>
 
 {% endblock %}
