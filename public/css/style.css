@@ -240,6 +240,28 @@ tr:nth-child(even) {
 background-color: #dddddd;
 }
 
+.alertbox-red {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.alertbox-red-type {
+    background-color: var(--red-flash);
+    color: #ffffff;
+
+    width: fit-content;
+
+    border-radius: 5px;
+
+    padding: 5px 10px;
+}
+
+.alertbox-red-message {
+    color: var(--blue-light);
+}
+
 /* Header */
 
 nav {

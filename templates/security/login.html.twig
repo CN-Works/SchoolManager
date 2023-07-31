@@ -7,7 +7,12 @@
 <div class="login-main">
     <form class="login-form" method="post">
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alertbox-red">
+                <div class="alertbox-red-type">
+                    <p>Error</p>
+                </div>
+                <p class="alertbox-red-message">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
         {% endif %}
     
         {% if app.user %}
