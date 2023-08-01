@@ -19,7 +19,7 @@
         {% if app.user.received | length > 0 %}
             <div class="message-cardslist">
                 {% for message in app.user.received %}
-                <a href="#" class="message-card">
+                <a href="{{ path("show_message", {"id" : message.id }) }}" class="message-card">
                     <div class="message-card-head">
                         {% if message.readed %}
                         {% else %}
