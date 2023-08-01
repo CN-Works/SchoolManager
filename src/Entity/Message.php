@@ -24,7 +24,7 @@ class Message
     private ?\DateTimeInterface $creationdate = null;
 
     #[ORM\Column]
-    private ?bool $readed = null;
+    private ?bool $readed = false;
 
     #[ORM\ManyToOne(inversedBy: 'sent')]
     #[ORM\JoinColumn(nullable: false)]
@@ -33,6 +33,15 @@ class Message
     #[ORM\ManyToOne(inversedBy: 'received')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $recipient = null;
+
+    // By adding adding a construct, it doesn't need you specify a creation a datetime object
+    public function __contruct() {
+        $this->creationdate = new \DateTime();
+    }
+
+    public function __toString() {
+        return $this->title;
+    }
 
     public function getId(): ?int
     {
@@ -61,6 +70,10 @@ class Message
         $this->message = $message;
 
         return $this;
+    }
+
+    public function getCreationDateFormat(): ?string {
+        return $this->creationdate->format("d F Y");
     }
 
     public function getCreationdate(): ?\DateTimeInterface
