@@ -664,6 +664,7 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
 
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     padding: 0 15px;
 }
@@ -705,6 +706,14 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
 
 .message-card:hover {
     background-color: var(--light);
+}
+
+.message-receivedcard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background-color: #ffffff;
 }
 
 .message-card-head {
