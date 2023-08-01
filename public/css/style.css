@@ -38,7 +38,7 @@
 
     width: 100%;
 
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .general-description {
@@ -654,4 +654,85 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
 
 .home-pageone-seemore:hover {
     background-color: var(--blue-electric-hover);
+}
+
+/* Messages */
+
+.message-main {
+    min-height: 90svh;
+    background-color: var(--light-blue);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 15px;
+}
+
+.message-head {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
+
+    margin: 10px 0;
+}
+
+.message-cardslist {
+    margin: 30px 0;
+    background-color: var();
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.message-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+
+    gap: 5px;
+    background-color: #ffffff;
+    border-radius: 15px;
+
+    outline: 2px solid var(--blue);
+
+    transition: all, 0.5s;
+    padding: 10px;
+}
+
+.message-card:hover {
+    background-color: var(--light);
+}
+
+.message-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message-card-unreadpoint {
+    height: 7px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--blue-electric);
+}
+
+.message-card-title {
+    color: var(--blue);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.message-card-date {
+    color: var(--blue-light);
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.message-card-text {
+    color: var(--blue-light);
+    font-size: 0.95rem;
 }
