@@ -576,8 +576,6 @@ input[type=text], input[type=password], input[type=email] {
     outline: 2px solid #BDCBD8;
     padding: 5px 3px;
     border-radius: 5px;
-
-    background-color: #cc1919;
 }
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
@@ -588,6 +586,25 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 }
 
 input[type=text]:defined, input[type=password]:defined, input[type=email]:defined {
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    min-height: 100px;
+
+
+    border: none;
+    outline: 2px solid #BDCBD8;
+    padding: 5px 3px;
+    border-radius: 5px;
+}
+
+textarea:focus {
+    border: none;
+    outline: 2px solid var(--dark);
+
     background-color: #ffffff;
 }
 
@@ -660,6 +677,7 @@ input[type=text]:defined, input[type=password]:defined, input[type=email]:define
 
 .message-main {
     min-height: 90svh;
+    width: 100%;
     background-color: var(--light-blue);
 
     display: flex;

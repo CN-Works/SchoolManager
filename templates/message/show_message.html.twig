@@ -15,11 +15,11 @@
             <p class="message-card-date">{{ message.getCreationDateFormat }}</p>
         </div>
 
-        <p class="message-card-text">Send by <b>{{ message.sender }} on <b></b> </b></p>
+        <p class="message-card-text">Send by <b>{{ message.sender }}</p>
 
         <p class="message-card-text">"{{ message.message }}"</b></p>
 
-        <a class="general-delete-button unselectable" href="{{ path("app_message") }}">
+        <a class="general-delete-button unselectable" href="{{ path("delete_message", {"id" : message.id}) }}">
             <p>Delete message</p>
         </a>
     </div>

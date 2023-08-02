@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Message{% endblock %}
+
+{% block body %}
+
+<div class="login-main">
+    <div class="registration-form">
+        {{ form_start(formAddMessage) }}
+
+            <h1 class="register-form-title">Send a message</h1>
+    
+            {{ form_row(formAddMessage.title) }}
+    
+            {{ form_row(formAddMessage.message) }}
+    
+            {{ form_row(formAddMessage.recipient) }}
+    
+            {{ form_row(formAddMessage.submit) }}
+            
+        {{ form_end(formAddMessage) }}
+    </div>
+</div>
+
+
+{% endblock %}
