@@ -714,7 +714,7 @@ textarea:focus {
 
     gap: 5px;
     background-color: #ffffff;
-    border-radius: 15px;
+    border-radius: 10px;
 
     outline: 2px solid var(--blue);
 
