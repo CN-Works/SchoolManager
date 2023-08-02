@@ -74,7 +74,7 @@ class Message
     }
 
     public function getCreationDateFormat(): ?string {
-        return $this->creationdate->format("d F Y");
+        return $this->creationdate->format("d F Y - H:i:s");
     }
 
     public function getCreationdate(): ?\DateTimeInterface
