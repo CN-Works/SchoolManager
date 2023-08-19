@@ -34,9 +34,8 @@ class SubjectController extends AbstractController
         ]);
     }
 
-    #[Route('/subject/new', name: 'new_subject')]
-    #[Route('/subject/{id}/edit', name: 'edit_subject')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/subject/new', name: 'new_subject')]
+    #[Route('/teacher/subject/{id}/edit', name: 'edit_subject')]
     public function new_edit(Subject $subject = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$subject) {
@@ -67,9 +66,8 @@ class SubjectController extends AbstractController
         ]);
     }
 
-    #[Route('/subjectcategory/new', name: 'new_subjectcategory')]
-    #[Route('/subjectcategory/{id}/edit', name: 'edit_subjectcategory')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/subjectcategory/new', name: 'new_subjectcategory')]
+    #[Route('/teacher/subjectcategory/{id}/edit', name: 'edit_subjectcategory')]
     public function category_new_edit(Category $category = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$category) {
@@ -100,8 +98,7 @@ class SubjectController extends AbstractController
         ]);
     }
 
-    #[Route('/subject/{id}/delete', name: 'delete_subject')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/subject/{id}/delete', name: 'delete_subject')]
     public function delete(SubjectRepository $subjectRepository, EntityManagerInterface $entityManager, $id)
     {   
         $subject = $subjectRepository->find(($id));
@@ -111,8 +108,7 @@ class SubjectController extends AbstractController
         return $this->redirectToRoute('app_subject');
     }
 
-    #[Route('/subjectcategory/{id}/delete', name: 'delete_subjectcategory')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/subjectcategory/{id}/delete', name: 'delete_subjectcategory')]
     public function category_delete(CategoryRepository $categoryRepository, EntityManagerInterface $entityManager, $id)
     {   
         $category = $categoryRepository->find(($id));

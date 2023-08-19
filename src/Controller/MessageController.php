@@ -14,15 +14,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MessageController extends AbstractController
 {
-    #[Route('/message', name: 'app_message'), IsGranted('ROLE_USER')]
+    #[Route('/message', name: 'app_message')]
     public function index(MessageRepository $messageRepository): Response
     {   
+        if ($this->getUser() === null) {
+            
+        }
+
         return $this->render('message/index.html.twig', [
             'controller_name' => 'MessageController',
         ]);
     }
 
-    #[Route('/message/new', name: 'new_message'), IsGranted('ROLE_USER')]
+    #[Route('/message/new', name: 'new_message')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $message = new Message;
@@ -56,7 +60,6 @@ class MessageController extends AbstractController
     }
 
     #[Route('/message/{id}/delete', name: 'delete_message')]
-    #[IsGranted('ROLE_USER')]
     public function delete(MessageRepository $messageRepository, EntityManagerInterface $entityManager, $id)
     {   
         $message = $messageRepository->find(($id));
