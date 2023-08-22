@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+
+<div class="message-main">
+    <div class="message-head">
+        <h1 class="general-title">All Messages</h1>
+        <p>Here are all received messages from others users</p>
+
+        <a class="general-new-button unselectable" href="{{ path("new_message") }}">
+            <p>Send a message</p>
+        </a>
+    </div>
+
+    {% if app.user.received is defined %}
+        {# // Checking if there's any messages in mailbox #}
+        {% if app.user.received | length > 0 %}
+            <div class="message-cardslist">
+                {% for message in app.user.received %}
+                <a href="{{ path("show_message", {"id" : message.id }) }}" class="message-card">
+                    <div class="message-card-head">
+                        {% if message.readed %}
+                        {% else %}
+                            <p class="message-card-unreadpoint"> </p>
+                        {% endif %}
+                        <p class="message-card-title">{{ message.title }}</p>
+                        <p class="message-card-date">{{ message.getCreationDateFormat }}</p>
+                    </div>
+                    <p class="message-card-text">Send by <b>{{ message.sender }}</b></p>
+                </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="message-cardslist">
+            <p class="message-card-text">There not any messages here.</p>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+
+<div class="message-main">
+    <a class="general-new-button unselectable" href="{{ path("app_message") }}">
+        <p>Go back to inbox</p>
+    </a>
+
+    <div class="message-receivedcard">
+        <div class="message-card-head">
+            <p class="message-card-title">{{ message.title }}</p>
+            <p class="message-card-date">{{ message.getCreationDateFormat }}</p>
+        </div>
+
+        <p class="message-card-text">Send by <b>{{ message.sender.email }}</p>
+
+        <p class="message-card-text">"{{ message.message }}"</b></p>
+
+        <a class="general-delete-button unselectable" href="{{ path("delete_message", {"id" : message.id}) }}">
+            <p>Delete message</p>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

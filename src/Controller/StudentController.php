@@ -23,9 +23,8 @@ class StudentController extends AbstractController
         ]);
     }
 
-    #[Route('/student/new', name: 'new_student')]
-    #[Route('/student/{id}/edit', name: 'edit_student')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/student/new', name: 'new_student')]
+    #[Route('/teacher/student/{id}/edit', name: 'edit_student')]
     public function new_edit(Student $student = null,Request $request, EntityManagerInterface $entityManager): Response
     {
         if (!$student) {
@@ -56,8 +55,7 @@ class StudentController extends AbstractController
         ]);
     }
 
-    #[Route('/student/{id}/delete', name: 'delete_student')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/admin/student/{id}/delete', name: 'delete_student')]
     public function delete(StudentRepository $studentRepository, EntityManagerInterface $entityManager, $id)
     {   
         $student = $studentRepository->find(($id));
@@ -68,8 +66,7 @@ class StudentController extends AbstractController
         return $this->redirectToRoute('app_student');
     }
 
-    #[Route('/student/{id}/interrupt/{sessionid}', name: 'interrupt_student')]
-    #[IsGranted('ROLE_TEACHER')]
+    #[Route('/teacher/student/{id}/interrupt/{sessionid}', name: 'interrupt_student')]
     public function interrupt(StudentRepository $studentRepository, SessionRepository $sessionRepository, EntityManagerInterface $entityManager, $id, $sessionid)
     {   
         // Getting the student entity by id
