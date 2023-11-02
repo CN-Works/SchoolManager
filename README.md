@@ -2,7 +2,7 @@
 A school manager web app using Symfony 6.
 
 **Preview :**
-<br>
+<img src="https://github.com/CN-Works/SchoolManager/assets/92865037/ea84a962-ae4d-4526-a04d-bffd53db4d1a" />
 
 <h3>Register</h3>
 
