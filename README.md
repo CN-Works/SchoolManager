@@ -1,6 +1,13 @@
 # SchoolManager
 A school manager web app using Symfony 6.
 
+<div align='left'><h1>Goals</h1>
+</div>
+
+- Creating my first project in Symfony 6
+- Using entities & relations
+- creating a simple ui (quickly, just for fun)
+
 **Preview :**
 <img src="https://github.com/CN-Works/SchoolManager/assets/92865037/ea84a962-ae4d-4526-a04d-bffd53db4d1a" />
 
