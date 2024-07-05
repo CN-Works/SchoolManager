@@ -1,5 +1,5 @@
 # SchoolManager
-A school manager web app using Symfony 6.
+A school manager web app using Symfony 6
 
 <div align='left'><h1>Goals</h1>
 </div>
