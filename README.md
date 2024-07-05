@@ -4,7 +4,7 @@ A school manager web app using Symfony 6
 <div align='left'><h1>Goals</h1>
 </div>
 
-- Creating my first project in Symfony 6.
+- Creating my first project in Symfony 6
 - Using entities & relations
 - creating a simple ui (quickly, just for fun)
 
